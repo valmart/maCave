@@ -13,12 +13,6 @@ addSbtPlugin("com.typesafe.sbt" % "sbt-less" % "1.0.6")
 
 addSbtPlugin("com.typesafe.sbt" % "sbt-digest" % "1.1.0")
 
-addSbtPlugin("com.typesafe.sbt" % "sbt-jse" % "1.0.0")
-
-addSbtPlugin("com.typesafe.sbt" % "sbt-npm" % "1.0.0")
-
-addSbtPlugin("com.typesafe.sbt" % "sbt-webdriver" % "1.0.0")
-
 addSbtPlugin("com.typesafe.sbt" % "sbt-mocha" % "1.1.0")
 
 addSbtPlugin("com.typesafe.sbt" % "sbt-play-ebean" % "1.0.0")

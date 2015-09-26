@@ -1,0 +1,26 @@
+@(form: Form[_])
+
+@main("Welcome to Play") {
+
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Ajouter une bouteille</h3>
+        </div>
+        <div class="panel-body">
+            @helper.form(action = routes.BouteillesController.doAddBottle()) {
+            @helper.inputText(form("domaine"))
+            @helper.inputText(form("appellation"))
+            @helper.select(form("category"), models.Category.getCategories().map(n => n.getCode -> n.getName), '_default -> "Selectionnez une categorie")
+            @helper.inputText(form("millesime"), 'type -> "number")
+            @helper.select(form("couleur"), models.Couleur.getCouleurs().map(n => n.getCode -> n.getName), '_default -> "Selectionnez une couleur")
+            @helper.inputText(form("volume_bouteille"), 'type -> "number")
+            @helper.inputText(form("degre_alcool"), 'type -> "number")
+            @helper.inputText(form("nbr_bouteille"), 'type -> "number")
+            <button class="btn-default btn" type="submit">VALIDATE</button>
+            }
+        </div>
+    </div>
+</div>
+
+}

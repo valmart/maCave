@@ -1,1 +1,4 @@
-language: java
+language: scala
+scala:
+   - 2.10.0
+script: sbt test

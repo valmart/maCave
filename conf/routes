@@ -5,6 +5,14 @@
 # Home page
 GET     /                           controllers.Application.index
 
+GET     /signup                     controllers.UsersController.signup()
+POST    /signup                     controllers.UsersController.doSignup()
+
+GET     /login                      controllers.UsersController.login()
+POST    /login                      controllers.UsersController.doLogin()
+
+GET     /logout                     controllers.UsersController.logout()
+
 GET     /liste                      controllers.BouteillesController.getBottleList()
 GET     /liste/rouge                controllers.BouteillesController.getRedBottleList()
 GET     /liste/rose                 controllers.BouteillesController.getRoseBottleList()

@@ -1,0 +1,55 @@
+package controllers;
+
+import forms.LoginForm;
+import forms.SignupForm;
+import managers.UserManager;
+import models.User;
+import play.data.Form;
+import play.mvc.Controller;
+import play.mvc.Result;
+
+import static play.data.Form.form;
+
+/**
+ * Created by val on 02/10/15.
+ */
+public class UsersController extends Controller {
+    public static Result    login(){
+        Form<LoginForm> loginForm = form(LoginForm.class);
+        return ok(views.html.signin.render(loginForm));
+    }
+
+    public static Result    doLogin(){
+        final Form<LoginForm> filledForm = form(LoginForm.class).bindFromRequest();
+        if (filledForm.hasErrors()) {
+            return badRequest(views.html.signin.render(filledForm));
+        } else {
+            UserManager.AuthenticationState result = UserManager.authenticate(filledForm.get().email, filledForm.get().password);
+            System.out.println(result);
+            if (result == UserManager.AuthenticationState.AUTHENTICATED)
+               return (redirect(routes.BouteillesController.getBottleList()));
+        }
+        return redirect(controllers.routes.Application.index());
+    }
+
+    public static Result    signup(){
+        Form<SignupForm> signupForm = form(SignupForm.class);
+        return ok(views.html.signup.render(signupForm));
+    }
+
+    public static Result    doSignup() {
+        final Form<SignupForm> filledForm = form(SignupForm.class).bindFromRequest();
+        if (filledForm.hasErrors()){
+            return badRequest(views.html.signup.render(filledForm));
+        } else {
+            User user = UserManager.create(filledForm.get());
+            UserManager.authenticate(filledForm.get().email, filledForm.get().password);
+        }
+        return redirect(controllers.routes.Application.index());
+    }
+
+    public static Result logout(){
+        UserManager.logout(ctx());
+        return redirect(controllers.routes.Application.index());
+    }
+}

@@ -17,6 +17,9 @@ public class Bouteille extends Model {
     @Id
     public Long             id;
 
+    @ManyToOne
+    public Cave             cave;
+
     public String           domaine;
 
     public String           appellation;

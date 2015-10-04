@@ -1,7 +1,6 @@
 package controllers;
 
 import forms.BouteilleForm;
-import managers.BarCode;
 import managers.BouteilleManager;
 import models.Bouteille;
 import play.data.Form;
@@ -16,8 +15,6 @@ import static play.data.Form.form;
  * Created by val on 19/09/15.
  */
 public class BouteillesController extends Controller {
-
-    public static final Form<BouteilleForm> ADD_BOUTEILLE = form(BouteilleForm.class);
 
     public static Result getBottleList(){
         List<Bouteille> bouteilles = Bouteille.findAll();
@@ -41,17 +38,15 @@ public class BouteillesController extends Controller {
 
     public static Result addBottle(){
         BouteilleForm bouteille = new BouteilleForm();
-        Form<BouteilleForm> bottleForm = ADD_BOUTEILLE.fill(bouteille);
+        Form<BouteilleForm> bottleForm = form(BouteilleForm.class).fill(bouteille);
         return (ok(views.html.creation_bouteille.render(bottleForm)));
     }
 
     public static Result doAddBottle() {
-        Form<BouteilleForm> form = ADD_BOUTEILLE.bindFromRequest();
+        Form<BouteilleForm> form = form(BouteilleForm.class).bindFromRequest();
         if (form.hasErrors())
             return badRequest(views.html.creation_bouteille.render(form));
-        Bouteille bouteille = BouteilleManager.create(form.get());
-        BarCode barCode = new BarCode(bouteille.id);
-        BouteilleManager.addQR(bouteille, barCode);
+        BouteilleManager.create(form.get(), null); // TODO Créer une cave avec le user et la récupérer
         flash(Application.FLASH_MESSAGE, "Your new bottle have been created");
         return redirect(routes.BouteillesController.getBottleList());
     }

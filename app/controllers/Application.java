@@ -16,7 +16,6 @@ public class Application extends Controller{
 
     public static User getLocalUser(final Http.Session session) {
         User user = UserManager.getCurrentUser(session);
-        System.out.println(user);
         return (user);
     }
 

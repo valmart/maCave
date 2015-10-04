@@ -36,7 +36,7 @@ public class User extends Model{
     @OneToMany(mappedBy = "owner")
     public List<Cave>   caves;
     //@OneToMany(cascade = CascadeType.ALL, mappedBy="account")
-    public List<String> pictures_url; // Todo : créer un objet pour stocker les images toussa toussa
+    //public List<String> pictures_url; // Todo : créer un objet pour stocker les images toussa toussa
 
     @Formats.DateTime(pattern="dd/MM/yyyy HH:mm:ss")
     public Date         creation_date;

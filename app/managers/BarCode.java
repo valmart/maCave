@@ -53,7 +53,7 @@ public class BarCode{
             }
             System.out.println("NEW QR CODE : " + myFile);
             ImageIO.write(image, fileType, myFile);
-            this.path = bottleId + ".png";
+            this.path = "images/qr/" + bottleId + ".png";
         } catch (WriterException e) {
             e.printStackTrace();
         } catch (IOException e) {

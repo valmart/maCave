@@ -5,9 +5,10 @@
     <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title">@bouteille.domaine -  @bouteille.appellation</h3>
+            @bouteille.qr_code
         </div>
         <div class="panel-body">
-            <img src=@routes.Assets.versioned("images/qr/1.png") />
+            <img src=@routes.Assets.versioned(bouteille.qr_code) />
         </div>
         <div class="panel-footer">
             <div class="dropdown">

@@ -31,4 +31,6 @@ public class Cave extends Model {
 
     @OneToMany(cascade=CascadeType.ALL)
     public List<Bouteille>  bouteilles;
+
+    public static Finder<Long, Cave> find = new Finder<Long, Cave>(Long.class, Cave.class);
 }

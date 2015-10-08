@@ -35,7 +35,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="@routes.BouteillesController.getBottleList()">Ma Cave <span class="sr-only">(current)</span></a></li>
+                    <li><a href="@routes.CaveController.showCave()">Ma Cave <span class="sr-only">(current)</span></a></li>
                     <li><a href="@routes.BouteillesController.addBottle()"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span></a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -59,6 +59,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     @defining(controllers.Application.getLocalUser(session())) { user =>
                     @if(user==null) {
+                    <li><a href="@routes.UsersController.signup()">Sign up</a></li>
                     <li><a href="@routes.UsersController.login()">Sign in</a></li>
                     }else{
                     <li><a href="@routes.UsersController.logout()">Logout</a></li>

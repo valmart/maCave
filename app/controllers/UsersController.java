@@ -27,7 +27,7 @@ public class UsersController extends Controller {
             UserManager.AuthenticationState result = UserManager.authenticate(filledForm.get().email, filledForm.get().password);
             System.out.println(result);
             if (result == UserManager.AuthenticationState.AUTHENTICATED)
-               return (redirect(routes.BouteillesController.getBottleList()));
+                return redirect(routes.CaveController.showCave());
         }
         return redirect(controllers.routes.Application.index());
     }

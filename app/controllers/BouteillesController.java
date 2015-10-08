@@ -7,34 +7,12 @@ import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
 
-import java.util.List;
-
 import static play.data.Form.form;
 
 /**
  * Created by val on 19/09/15.
  */
 public class BouteillesController extends Controller {
-
-    public static Result getBottleList(){
-        List<Bouteille> bouteilles = Bouteille.findAll();
-        return ok(views.html.liste_bouteille.render(bouteilles));
-    }
-
-    public static Result getRedBottleList(){
-        List<Bouteille> bouteilles = Bouteille.findRedBottles();
-        return ok(views.html.liste_bouteille.render(bouteilles));
-    }
-
-    public static Result getWhiteBottleList(){
-        List<Bouteille> bouteilles = Bouteille.findWhiteBottles();
-        return ok(views.html.liste_bouteille.render(bouteilles));
-    }
-
-    public static Result getRoseBottleList(){
-        List<Bouteille> bouteilles = Bouteille.findRoseBottles();
-        return ok(views.html.liste_bouteille.render(bouteilles));
-    }
 
     public static Result addBottle(){
         BouteilleForm bouteille = new BouteilleForm();
@@ -48,7 +26,7 @@ public class BouteillesController extends Controller {
             return badRequest(views.html.creation_bouteille.render(form));
         BouteilleManager.create(form.get(), null); // TODO Créer une cave avec le user et la récupérer
         flash(Application.FLASH_MESSAGE, "Your new bottle have been created");
-        return redirect(routes.BouteillesController.getBottleList());
+        return redirect(routes.CaveController.showCave());
     }
 
     public static Result bottleDetails(Long id){
@@ -62,6 +40,6 @@ public class BouteillesController extends Controller {
         Bouteille bouteille = Bouteille.find.byId(id);
         BouteilleManager.delete(bouteille);
         flash(Application.FLASH_MESSAGE, "Your bottle have been deleted");
-        return redirect(routes.BouteillesController.getBottleList());
+        return redirect(routes.CaveController.showCave());
     }
 }

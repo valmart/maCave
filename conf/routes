@@ -13,10 +13,7 @@ POST    /login                      controllers.UsersController.doLogin()
 
 GET     /logout                     controllers.UsersController.logout()
 
-GET     /liste                      controllers.BouteillesController.getBottleList()
-GET     /liste/rouge                controllers.BouteillesController.getRedBottleList()
-GET     /liste/rose                 controllers.BouteillesController.getRoseBottleList()
-GET     /liste/blanc                controllers.BouteillesController.getWhiteBottleList()
+GET     /cave                       controllers.CaveController.showCave()
 
 GET     /bottle/:id                 controllers.BouteillesController.bottleDetails(id: Long)
 

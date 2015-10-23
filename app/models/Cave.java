@@ -4,6 +4,7 @@ import com.avaje.ebean.Model;
 import play.data.format.Formats;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -33,4 +34,12 @@ public class Cave extends Model {
     public List<Bouteille>  bouteilles;
 
     public static Finder<Long, Cave> find = new Finder<Long, Cave>(Long.class, Cave.class);
+
+    public Cave(String name, User owner){
+        this.name = name;
+        this.owner = owner;
+        this.creation_date = new Date();
+        this.last_update_date = new Date();
+        this.bouteilles = new ArrayList<>();
+    }
 }

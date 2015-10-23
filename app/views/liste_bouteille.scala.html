@@ -5,7 +5,6 @@
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>id</th>
             <th>domaine</th>
             <th>category</th>
             <th>degre_alcool</th>
@@ -13,16 +12,13 @@
             <th>millesime</th>
             <th>appellation</th>
             <th>couleur</th>
-            <th>nbr_bouteille</th>
             <th>qr_code</th>
-            <th>createur</th>
             <th>date_creation</th>
         </tr>
         </thead>
         <tbody>
         @for(bouteille <- bouteilles){
         <tr>
-            <td>@bouteille.id</td>
             <td><a href="@routes.BouteillesController.bottleDetails(bouteille.id)">@bouteille.domaine</a></td>
             <td>@bouteille.category</td>
             <td>@bouteille.degre_alcool</td>
@@ -30,9 +26,7 @@
             <td>@bouteille.millesime</td>
             <td>@bouteille.appellation</td>
             <td>@bouteille.couleur.getName</td>
-            <td>@bouteille.nbr_bouteille</td>
             <td><img src=@controllers.Assets.versioned("/qr", bouteille.qr_code)/></td>
-            <td>@bouteille.createur</td>
             <td>@bouteille.date_creation.format("dd MMM yyyy")</td>
         </tr>
         }

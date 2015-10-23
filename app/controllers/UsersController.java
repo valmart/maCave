@@ -2,7 +2,9 @@ package controllers;
 
 import forms.LoginForm;
 import forms.SignupForm;
+import managers.CaveManager;
 import managers.UserManager;
+import models.Cave;
 import models.User;
 import play.data.Form;
 import play.mvc.Controller;
@@ -43,7 +45,9 @@ public class UsersController extends Controller {
             return badRequest(views.html.signup.render(filledForm));
         } else {
             User user = UserManager.create(filledForm.get());
+            Cave cave = CaveManager.create(filledForm.get().cave_name, user);
             UserManager.authenticate(filledForm.get().email, filledForm.get().password);
+            // TODO Renvoyer vers la cave tout juste créée
         }
         return redirect(controllers.routes.Application.index());
     }

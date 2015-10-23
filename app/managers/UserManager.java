@@ -18,7 +18,7 @@ public class UserManager {
 
     private static final String USER_KEY = "cave.user.id";
     public static User create(SignupForm signupForm){
-        User user = new User(signupForm);
+        User user = new User(signupForm.email, signupForm.password);
         user.save();
         return (user);
     }

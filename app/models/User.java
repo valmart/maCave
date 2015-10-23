@@ -1,7 +1,6 @@
 package models;
 
 import com.avaje.ebean.Model;
-import forms.SignupForm;
 import org.mindrot.jbcrypt.BCrypt;
 import play.data.format.Formats;
 
@@ -9,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -43,10 +43,11 @@ public class User extends Model{
     @Formats.DateTime(pattern="dd/MM/yyyy HH:mm:ss")
     public Date         last_connection_date;
 
-    public User(SignupForm signupForm){
-        this.email = signupForm.email;
-        String hashPassword = BCrypt.hashpw(signupForm.password, BCrypt.gensalt());
+    public User(String email, String password){
+        this.email = email;
+        String hashPassword = BCrypt.hashpw(password, BCrypt.gensalt());
         this.password = hashPassword;
+        this.caves = new ArrayList<>();
     }
 
     public static Finder<Long, User> find = new Finder<Long, User>(Long.class, User.class);

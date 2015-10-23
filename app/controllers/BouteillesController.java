@@ -3,6 +3,7 @@ package controllers;
 import forms.BouteilleForm;
 import managers.BouteilleManager;
 import models.Bouteille;
+import models.Cave;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -24,8 +25,9 @@ public class BouteillesController extends Controller {
         Form<BouteilleForm> form = form(BouteilleForm.class).bindFromRequest();
         if (form.hasErrors())
             return badRequest(views.html.creation_bouteille.render(form));
-        BouteilleManager.create(form.get(), null); // TODO Créer une cave avec le user et la récupérer
-        flash(Application.FLASH_MESSAGE, "Your new bottle have been created");
+        Cave cave = Application.getLocalUser(session()).caves.get(0);
+        BouteilleManager.create(form.get(), cave); // TODO Passer la cave en parametre dans le form ?
+        flash(Application.FLASH_MESSAGE, "Your new bottle(s) have been created");
         return redirect(routes.CaveController.showCave());
     }
 

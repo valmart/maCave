@@ -37,12 +37,7 @@ public class Bouteille extends Model {
 
     public Couleur          couleur;
 
-    public int              nbr_bouteille;
-
     public String           qr_code;
-
-    @ManyToOne
-    public Utilisateur      createur;
 
     public Date             date_creation;
 

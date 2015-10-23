@@ -14,9 +14,7 @@ create table bouteille (
   producteur_id             bigint,
   millesime                 integer,
   couleur                   varchar(5),
-  nbr_bouteille             integer,
   qr_code                   varchar(255),
-  createur_id               integer,
   date_creation             timestamp,
   dernier_modificateur_id   integer,
   derniere_modification     timestamp,
@@ -92,12 +90,10 @@ alter table bouteille add constraint fk_bouteille_cave_1 foreign key (cave_id) r
 create index ix_bouteille_cave_1 on bouteille (cave_id);
 alter table bouteille add constraint fk_bouteille_producteur_2 foreign key (producteur_id) references producteur (id) on delete restrict on update restrict;
 create index ix_bouteille_producteur_2 on bouteille (producteur_id);
-alter table bouteille add constraint fk_bouteille_createur_3 foreign key (createur_id) references utilisateur (id) on delete restrict on update restrict;
-create index ix_bouteille_createur_3 on bouteille (createur_id);
-alter table bouteille add constraint fk_bouteille_dernier_modificat_4 foreign key (dernier_modificateur_id) references utilisateur (id) on delete restrict on update restrict;
-create index ix_bouteille_dernier_modificat_4 on bouteille (dernier_modificateur_id);
-alter table cave add constraint fk_cave_owner_5 foreign key (owner_id) references user (id) on delete restrict on update restrict;
-create index ix_cave_owner_5 on cave (owner_id);
+alter table bouteille add constraint fk_bouteille_dernier_modificat_3 foreign key (dernier_modificateur_id) references utilisateur (id) on delete restrict on update restrict;
+create index ix_bouteille_dernier_modificat_3 on bouteille (dernier_modificateur_id);
+alter table cave add constraint fk_cave_owner_4 foreign key (owner_id) references user (id) on delete restrict on update restrict;
+create index ix_cave_owner_4 on cave (owner_id);
 
 
 

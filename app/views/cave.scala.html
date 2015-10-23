@@ -2,11 +2,103 @@
 
 @main("Cavavin") {
 <div class="container">
+    <h1>@cave.name</h1>
+    <div class="container">
+        <center>
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="glyphicon glyphicon-glass"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">@models.Bouteille.findAll().size()</div>
+                                <div>Bouteilles dans ma cave</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="">
+                        <div class="panel-footer">
+                            <span class="pull-left">View Details</span>
+                            <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-tasks fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">@models.Bouteille.findRedBottles().size()</div>
+                                <div>Bouteilles de rouge</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="">
+                        <div class="panel-footer">
+                            <span class="pull-left">View Details</span>
+                            <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-warning">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-shopping-cart fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">@models.Bouteille.findRoseBottles().size()</div>
+                                <div>Bouteilles de rosé</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="">
+                        <div class="panel-footer">
+                            <span class="pull-left">View Details</span>
+                            <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="panel panel-danger">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-support fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge">@models.Bouteille.findWhiteBottles().size()</div>
+                                <div>Bouteilles de blanc</div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="">
+                        <div class="panel-footer">
+                            <span class="pull-left">View Details</span>
+                            <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </center>
+    </div>
     <h2>Vos bouteilles</h2>
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>id</th>
             <th>domaine</th>
             <th>category</th>
             <th>degre_alcool</th>
@@ -14,16 +106,13 @@
             <th>millesime</th>
             <th>appellation</th>
             <th>couleur</th>
-            <th>nbr_bouteille</th>
             <th>qr_code</th>
-            <th>createur</th>
             <th>date_creation</th>
         </tr>
         </thead>
         <tbody>
         @for(bouteille <- cave.bouteilles){
         <tr>
-            <td>@bouteille.id</td>
             <td><a href="@routes.BouteillesController.bottleDetails(bouteille.id)">@bouteille.domaine</a></td>
             <td>@bouteille.category</td>
             <td>@bouteille.degre_alcool</td>
@@ -31,9 +120,7 @@
             <td>@bouteille.millesime</td>
             <td>@bouteille.appellation</td>
             <td>@bouteille.couleur.getName</td>
-            <td>@bouteille.nbr_bouteille</td>
             <td><img src=@controllers.Assets.versioned("/qr", bouteille.qr_code)/></td>
-            <td>@bouteille.createur</td>
             <td>@bouteille.date_creation.format("dd MMM yyyy")</td>
         </tr>
         }

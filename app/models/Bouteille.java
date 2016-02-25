@@ -20,41 +20,27 @@ public class Bouteille extends Model {
     @ManyToOne
     public Cave             cave;
 
-    public String           domaine;
-
     public String           appellation;
-
-    public Category         category;
-
-    public int              degre_alcool;
-
-    public int              volume_bouteille;
-
-    @ManyToOne
-    public Producteur       producteur;
 
     public int              millesime;
 
     public Couleur          couleur;
 
+    public int              degre_alcool;
+
+    public int              volume_bouteille;
+
     public String           qr_code;
-
-    public Date             date_creation;
-
-    @ManyToOne
-    public Utilisateur      dernier_modificateur;
-
-    public Date             derniere_modification;
 
     public int              prix_achat;
 
-    public String           origine;
-
-    public BouteilleStatus  status;
-
-    public int              note;
+    public Boolean          isAvailable;
 
     public Date             date_ouverture;
+
+    public Date             date_creation;
+
+    public Date             derniere_modification;
 
     public Bouteille(){
 
@@ -62,36 +48,43 @@ public class Bouteille extends Model {
 
     public static Finder<Long, Bouteille> find = new Finder<Long, Bouteille>(Long.class, Bouteille.class);
 
-    public static List<Bouteille> findAll(){
+    public static List<Bouteille> getAvailableBottles(){
         return find.where()
-                .eq("status", BouteilleStatus.DISPONIBLE)
+                .eq("isAvailable", true)
                 .findList();
     }
 
-    public static List<Bouteille>   findRedBottles(){
+    public static List<Bouteille>   getAvailableRedBottles(){
         return find.where()
-                .eq("status", BouteilleStatus.DISPONIBLE)
+                .eq("isAvailable", true)
                 .eq("couleur", Couleur.ROUGE)
                 .findList();
     }
 
-    public static List<Bouteille>   findWhiteBottles(){
+    public static List<Bouteille>   getAvailableWhiteBottles(){
         return find.where()
-                .eq("status", BouteilleStatus.DISPONIBLE)
+                .eq("isAvailable", true)
                 .eq("couleur", Couleur.BLANC)
                 .findList();
     }
 
-    public static List<Bouteille>   findRoseBottles(){
+    public static List<Bouteille>   getAvailableRoseBottles(){
         return find.where()
-                .eq("status", BouteilleStatus.DISPONIBLE)
+                .eq("isAvailable", true)
                 .eq("couleur", Couleur.ROSE)
                 .findList();
     }
 
-    public static List<Bouteille>   findDrunkBottles(){
+    public static List<Bouteille>   getAvailableOtherBottles(){
         return find.where()
-                .eq("status", BouteilleStatus.CONSOMME)
+                .eq("isAvailable", true)
+                .eq("couleur", Couleur.AUTRE)
+                .findList();
+    }
+
+    public static List<Bouteille>   getDrunkBottles(){
+        return find.where()
+                .eq("isAvailable", false)
                 .findList();
     }
 }

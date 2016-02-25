@@ -16,7 +16,9 @@ public enum Couleur {
     @EnumValue("BLANC")
     BLANC ("Blanc"),
     @EnumValue("ROSE")
-    ROSE  ("Rose");
+    ROSE  ("Rose"),
+    @EnumValue("AUTRE")
+    AUTRE ("Autre");
 
     private String couleur;
 

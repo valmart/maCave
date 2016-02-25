@@ -1,130 +1,148 @@
 @(cave: Cave)
 
 @main("Cavavin") {
-<div class="container">
-    <h1>@cave.name</h1>
+    <link href="http://fonts.googleapis.com/css?family=Raleway:400,300" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript">
+            $(document).ready(function () {
+
+                $("#btn-blog-next").click(function () {
+                    $('#blogCarousel').carousel('next')
+                });
+                $("#btn-blog-prev").click(function () {
+                    $('#blogCarousel').carousel('prev')
+                });
+
+                $("#btn-client-next").click(function () {
+                    $('#clientCarousel').carousel('next')
+                });
+                $("#btn-client-prev").click(function () {
+                    $('#clientCarousel').carousel('prev')
+                });
+
+            });
+
+            $(window).load(function () {
+
+                $('.flexslider').flexslider({
+                    animation: "slide",
+                    slideshow: true,
+                    start: function (slider) {
+                        $('body').removeClass('loading');
+                    }
+                });
+            });
+
+    </script>
+    <!-- NAVIGATION MENU -->
+
     <div class="container">
-        <center>
-            <div class="col-lg-3 col-md-6">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="glyphicon glyphicon-glass"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge">@models.Bouteille.findAll().size()</div>
-                                <div>Bouteilles dans ma cave</div>
-                            </div>
-                        </div>
+
+            <!-- FIRST ROW OF BLOCKS -->
+        <div class="row">
+            <div class="col-sm-3 col-lg-3">
+
+                    <!-- LIVE VISITORS BLOCK -->
+                <div class="half-unit">
+                    <dtitle>Nombre de bouteilles</dtitle>
+                    <hr>
+                    <div class="cont">
+                        <p><bold>38</bold></p>
+                        <p><img src=@routes.Assets.versioned("images/up-small.png") alt=""> 41 Max.</p>
                     </div>
-                    <a href="">
-                        <div class="panel-footer">
-                            <span class="pull-left">View Details</span>
-                            <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
+                </div>
+
+                    <!-- PAGE VIEWS BLOCK -->
+                <div class="half-unit">
+                    <dtitle>Valeur de la cave</dtitle>
+                    <hr>
+                    <div class="cont">
+                        <p><bold>145.00 €</bold></p>
+                        <p><img src=@routes.Assets.versioned("images/up-small.png") alt=""> 200.00€ Max.</p>
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="panel panel-success">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-tasks fa-5x"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge">@models.Bouteille.findRedBottles().size()</div>
-                                <div>Bouteilles de rouge</div>
-                            </div>
-                        </div>
+                <!-- LAST MONTH REVENUE -->
+            <div class="col-sm-3 col-lg-3">
+                <div class="dash-unit">
+                    <dtitle>Coup d'oeil</dtitle>
+                    <hr>
+                    <div class="cont">
+                        <p><bold>13</bold> | Bouteilles de Rouge</p>
+                        <br>
+                        <p><bold>11</bold> | Bouteilles de Rosé</p>
+                        <br>
+                        <p><bold>8</bold> | Bouteilles de Blanc</p>
+                        <br>
+                        <p><bold>6</bold> | Autres Bouteilles</p>
+                        <br>
                     </div>
-                    <a href="">
-                        <div class="panel-footer">
-                            <span class="pull-left">View Details</span>
-                            <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
+
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="panel panel-warning">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-shopping-cart fa-5x"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge">@models.Bouteille.findRoseBottles().size()</div>
-                                <div>Bouteilles de rosé</div>
-                            </div>
-                        </div>
+
+                <!-- DONUT CHART BLOCK -->
+            <div class="col-sm-3 col-lg-3">
+                <div class="dash-unit">
+                    <dtitle>Activité de ma cave</dtitle>
+                    <hr>
+                    <div class="cont">
+                        <p><bold>6</bold> | <ok>Bouteilles Ajoutées</ok></p>
+                        <br>
+                        <p><bold>3</bold> | <bad>Bouteilles Consommés</bad></p>
+                        <br>
+                        <p><bold>1</bold> | Bouteilles Offertes <i class="fa fa-2x fa-gift"></i>
+                        </p>
+                        <br>
+                        <p><bold>1</bold> | Bouteilles Reçues <i class="fa fa-2x fa-gift"></i>
+                        </p>
                     </div>
-                    <a href="">
-                        <div class="panel-footer">
-                            <span class="pull-left">View Details</span>
-                            <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
+
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="panel panel-danger">
-                    <div class="panel-heading">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <i class="fa fa-support fa-5x"></i>
-                            </div>
-                            <div class="col-xs-9 text-right">
-                                <div class="huge">@models.Bouteille.findWhiteBottles().size()</div>
-                                <div>Bouteilles de blanc</div>
-                            </div>
-                        </div>
+
+            <div class="col-sm-3 col-lg-3">
+
+                    <!-- LOCAL TIME BLOCK -->
+                <div class="half-unit">
+                    <dtitle>Date & Heure</dtitle>
+                    <hr>
+                    <div class="clockcenter">
+                        <digiclock>12:45:25</digiclock>
                     </div>
-                    <a href="">
-                        <div class="panel-footer">
-                            <span class="pull-left">View Details</span>
-                            <span class="pull-right"><i class="glyphicon glyphicon-circle-arrow-right"></i></span>
-                            <div class="clearfix"></div>
-                        </div>
-                    </a>
                 </div>
+
+                    <!-- SERVER UPTIME -->
+                <div class="half-unit">
+                    <dtitle>Informations importantes</dtitle>
+                    <hr>
+                    <div class="cont">
+                        <p><img src=@routes.Assets.versioned("images/down.png") alt=""> La cave est presque vide !</p>
+                    </div>
+                </div>
+
             </div>
-        </center>
-    </div>
-    <h2>Vos bouteilles</h2>
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th>domaine</th>
-            <th>category</th>
-            <th>degre_alcool</th>
-            <th>volume_bouteille</th>
-            <th>millesime</th>
-            <th>appellation</th>
-            <th>couleur</th>
-            <th>qr_code</th>
-            <th>date_creation</th>
-        </tr>
-        </thead>
-        <tbody>
-        @for(bouteille <- cave.bouteilles){
-        <tr>
-            <td><a href="@routes.BouteillesController.bottleDetails(bouteille.id)">@bouteille.domaine</a></td>
-            <td>@bouteille.category</td>
-            <td>@bouteille.degre_alcool</td>
-            <td>@bouteille.volume_bouteille</td>
-            <td>@bouteille.millesime</td>
-            <td>@bouteille.appellation</td>
-            <td>@bouteille.couleur.getName</td>
-            <td><img src=@controllers.Assets.versioned("/qr", bouteille.qr_code)/></td>
-            <td>@bouteille.date_creation.format("dd MMM yyyy")</td>
-        </tr>
-        }
-        </tbody>
-    </table>
-</div>
+        </div><!-- /row -->
+        @liste_bouteille(cave.bouteilles)
+    </div> <!-- /container -->
 }
+
+<script src="@routes.Assets.versioned("javascripts/jquery.js")" type="text/javascript"></script>
+<script src="@routes.Assets.versioned("javascripts/bootstrap.js")" type="text/javascript"></script>
+<script src="@routes.Assets.versioned("javascripts/lineandbars.js")" type="text/javascript"></script>
+<script src="@routes.Assets.versioned("javascripts/dash-charts.js")" type="text/javascript"></script>
+<script src="@routes.Assets.versioned("javascripts/gauge.js")" type="text/javascript"></script>
+<script src="@routes.Assets.versioned("javascripts/noty/jquery.noty.js")" type="text/javascript"></script>
+<script src="@routes.Assets.versioned("javascripts/noty/layouts/top.js")" type="text/javascript"></script>
+<script src="@routes.Assets.versioned("javascripts/noty/layouts/topLeft.js")" type="text/javascript"></script>
+<script src="@routes.Assets.versioned("javascripts/noty/layouts/topRight.js")" type="text/javascript"></script>
+<script src="@routes.Assets.versioned("javascripts/noty/layouts/topCenter.js")" type="text/javascript"></script>
+
+<script src="@routes.Assets.versioned("javascripts/noty/themes/default.js")" type="text/javascript"></script>
+
+    <!-- <script type="text/javascript" src="assets/js/dash-noty.js"></script> This is a Noty bubble when you init the theme-->
+<script type="text/javascript" src="http://code.highcharts.com/highcharts.js"></script>
+
+<script src="@routes.Assets.versioned("javascripts/jquery.flexslider.js")" type="text/javascript"></script>
+<script src="@routes.Assets.versioned("javascripts/admin.js")" type="text/javascript"></script>

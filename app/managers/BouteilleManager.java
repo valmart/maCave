@@ -2,7 +2,6 @@ package managers;
 
 import forms.BouteilleForm;
 import models.Bouteille;
-import models.BouteilleStatus;
 import models.Cave;
 import play.db.ebean.Transactional;
 
@@ -17,16 +16,12 @@ public class BouteilleManager {
         int i = bouteilleForm.nbr_bouteille;
         while (i > 0) {
             Bouteille bouteille = new Bouteille();
-            bouteille.domaine = bouteilleForm.domaine;
             bouteille.millesime = bouteilleForm.millesime;
             bouteille.couleur = bouteilleForm.couleur;
-            bouteille.category = bouteilleForm.category;
             bouteille.date_creation = new Date();
             bouteille.degre_alcool = bouteilleForm.degre_alcool;
-            bouteille.dernier_modificateur = null;
-            bouteille.appellation = bouteilleForm.appellation;
             bouteille.volume_bouteille = bouteilleForm.volume_bouteille;
-            bouteille.status = BouteilleStatus.DISPONIBLE;
+            bouteille.isAvailable = true;
             bouteille.derniere_modification = new Date();
             bouteille.save();
             BarCode barCode = new BarCode(bouteille.id);
@@ -45,7 +40,7 @@ public class BouteilleManager {
 
     @Transactional
     public static void  delete(Bouteille bouteille){
-        bouteille.status = BouteilleStatus.CONSOMME;
+        bouteille.isAvailable = false;
         bouteille.update();
     }
 }

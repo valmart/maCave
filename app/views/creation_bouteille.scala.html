@@ -11,7 +11,6 @@
             @helper.form(action = routes.BouteillesController.doAddBottle()) {
             @helper.inputText(form("domaine"))
             @helper.inputText(form("appellation"))
-            @helper.select(form("category"), models.Category.getCategories().map(n => n.getCode -> n.getName), '_default -> "Selectionnez une categorie")
             @helper.inputText(form("millesime"), 'type -> "number")
             @helper.select(form("couleur"), models.Couleur.getCouleurs().map(n => n.getCode -> n.getName), '_default -> "Selectionnez une couleur")
             @helper.inputText(form("volume_bouteille"), 'type -> "number")

@@ -5,8 +5,6 @@
     <table class="table table-striped">
         <thead>
         <tr>
-            <th>domaine</th>
-            <th>category</th>
             <th>degre_alcool</th>
             <th>volume_bouteille</th>
             <th>millesime</th>
@@ -19,8 +17,6 @@
         <tbody>
         @for(bouteille <- bouteilles){
         <tr>
-            <td><a href="@routes.BouteillesController.bottleDetails(bouteille.id)">@bouteille.domaine</a></td>
-            <td>@bouteille.category</td>
             <td>@bouteille.degre_alcool</td>
             <td>@bouteille.volume_bouteille</td>
             <td>@bouteille.millesime</td>

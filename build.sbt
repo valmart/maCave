@@ -1,4 +1,4 @@
-name := """cavavin"""
+name := "cavavin"
 
 version := "1.0-SNAPSHOT"
 
@@ -16,7 +16,7 @@ libraryDependencies ++= Seq(
   specs2 % Test
 )
 
-resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"
+//resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"
 
 libraryDependencies += "mysql" % "mysql-connector-java" % "5.1.18"
 

@@ -20,6 +20,8 @@ public class Bouteille extends Model {
     @ManyToOne
     public Cave             cave;
 
+    public String           domaine;
+
     public String           appellation;
 
     public int              millesime;
@@ -47,4 +49,50 @@ public class Bouteille extends Model {
     }
 
     public static Finder<Long, Bouteille> find = new Finder<Long, Bouteille>(Long.class, Bouteille.class);
+
+    public static List<Bouteille> getAvailableBottles(Cave cave){
+        return Bouteille.find.where()
+                .eq("isAvailable", true)
+                .eq("cave.owner", cave.owner)
+                .findList();
+    }
+
+    public static List<Bouteille>   getAvailableRedBottles(Cave cave){
+        return Bouteille.find.where()
+                .eq("isAvailable", true)
+                .eq("couleur", Couleur.ROUGE)
+                .eq("cave.owner", cave.owner)
+                .findList();
+    }
+
+    public static List<Bouteille>   getAvailableWhiteBottles(Cave cave){
+        return Bouteille.find.where()
+                .eq("isAvailable", true)
+                .eq("couleur", Couleur.BLANC)
+                .eq("cave.owner", cave.owner)
+                .findList();
+    }
+
+    public static List<Bouteille>   getAvailableRoseBottles(Cave cave){
+        return Bouteille.find.where()
+                .eq("isAvailable", true)
+                .eq("couleur", Couleur.ROSE)
+                .eq("cave.owner", cave.owner)
+                .findList();
+    }
+
+    public static List<Bouteille>   getAvailableOtherBottles(Cave cave){
+        return Bouteille.find.where()
+                .eq("isAvailable", true)
+                .eq("couleur", Couleur.AUTRE)
+                .eq("cave.owner", cave.owner)
+                .findList();
+    }
+
+    public static List<Bouteille>   getDrunkBottles(Cave cave){
+        return Bouteille.find.where()
+                .eq("isAvailable", false)
+                .eq("cave.owner", cave.owner)
+                .findList();
+    }
 }

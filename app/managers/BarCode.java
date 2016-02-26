@@ -46,7 +46,7 @@ public class BarCode {
         } catch (Exception e){
             System.out.println("--- EXCEPTION --- Verifier le filePath !");
         }
-        return (filePath);
+        return ("images/qr/" + bottleId + ".png");
     }
 
     private static void createQRCode(final String qrCodeData, final String filePath, final String charset, Map hintMap, int qrCodeheight, int qrCodewidth) throws WriterException, IOException {

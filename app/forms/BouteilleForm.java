@@ -11,6 +11,8 @@ public class BouteilleForm {
     @Constraints.Required
     public String           domaine;
 
+    public String           appellation;
+
     public int              degre_alcool;
 
     public int              volume_bouteille;

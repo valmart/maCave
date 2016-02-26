@@ -8,15 +8,16 @@
                     <dtitle>Nombre de bouteilles</dtitle>
                     <hr>
                     <div class="cont">
-                        <p><bold>38</bold></p>
-                        <p><img src=@routes.Assets.versioned("images/up-small.png") alt=""> 41 Max.</p>
+                        <p><bold>@Bouteille.getAvailableBottles(cave).size()</bold></p>
+                        <p><img src=@routes.Assets.versioned("images/up-small.png") alt=""> @cave.bouteille_max Max.</p>
                     </div>
                 </div>
                 <div class="half-unit">
                     <dtitle>Valeur de la cave</dtitle>
                     <hr>
                     <div class="cont">
-                        <p><bold>145.00 €</bold></p>
+                        <p><bold>
+                            145.00 €</bold></p>
                         <p><img src=@routes.Assets.versioned("images/up-small.png") alt=""> 200.00€ Max.</p>
                     </div>
                 </div>
@@ -26,13 +27,13 @@
                     <dtitle>Coup d'oeil</dtitle>
                     <hr>
                     <div class="cont">
-                        <p><bold>13</bold> | Bouteilles de Rouge</p>
+                        <p><bold>@Bouteille.getAvailableRedBottles(cave).size()</bold> | Bouteilles de Rouge</p>
                         <br>
-                        <p><bold>11</bold> | Bouteilles de Rosé</p>
+                        <p><bold>@Bouteille.getAvailableRoseBottles(cave).size()</bold> | Bouteilles de Rosé</p>
                         <br>
-                        <p><bold>8</bold> | Bouteilles de Blanc</p>
+                        <p><bold>@Bouteille.getAvailableWhiteBottles(cave).size()</bold> | Bouteilles de Blanc</p>
                         <br>
-                        <p><bold>6</bold> | Autres Bouteilles</p>
+                        <p><bold>@Bouteille.getAvailableOtherBottles(cave).size()</bold> | Autres Bouteilles</p>
                         <br>
                     </div>
 
@@ -43,11 +44,11 @@
                     <dtitle>Activité de ma cave</dtitle>
                     <hr>
                     <div class="cont">
-                        <p><bold>6</bold> | <ok>Bouteilles Ajoutées</ok></p>
-                        <p><bold>1</bold> | Bouteilles Reçues <i class="fa fa-2x fa-gift"></i></p>
+                        <p><bold>@cave.bouteilles.size()</bold> | <ok>Bouteilles Ajoutées</ok></p>
+                        <p>dont <bold>0</bold> | Reçues <i class="fa fa-2x fa-gift"></i></p>
                         <br>
-                        <p><bold>3</bold> | <bad>Bouteilles Consommés</bad></p>
-                        <p><bold>1</bold> | Bouteilles Offertes <i class="fa fa-2x fa-gift"></i></p>
+                        <p><bold>@Bouteille.getDrunkBottles(cave).size()</bold> | <bad>Bouteilles Consommés</bad></p>
+                        <p>dont <bold>0</bold> | Offertes <i class="fa fa-2x fa-gift"></i></p>
                         <br>
                     </div>
 

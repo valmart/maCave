@@ -6,6 +6,7 @@
 create table bouteille (
   id                        bigint not null,
   cave_id                   bigint,
+  domaine                   varchar(255),
   appellation               varchar(255),
   millesime                 integer,
   couleur                   varchar(5),

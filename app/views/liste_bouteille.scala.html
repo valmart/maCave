@@ -1,26 +1,17 @@
 @(bouteilles: List[Bouteille])
 
 <div class="container">
-    <table class="table table-striped table-bordered">
-        <thead>
-            <tr>
-                <th>Couleur</th>
-                <th>Appellation</th>
-                <th>Domaine</th>
-                <th>Millesime</th>
-                <th>Date d'ajout</th>
-            </tr>
-        </thead>
-        <tbody>
-            @for(bouteille <- bouteilles){
-            <tr>
-                <td>@bouteille.couleur.getName</td>
-                <td><a href="@routes.BouteillesController.bottleDetails(bouteille.id)"/>@bouteille.appellation</td>
-                <td>@bouteille.domaine</td>
-                <td>@bouteille.millesime</td>
-                <td>@bouteille.date_creation.format("dd MMM yyyy")</td>
-            </tr>
-            }
-        </tbody>
-    </table>
+    <div id="pricing-table" class="clear">
+        @for(bouteille <- bouteilles) {
+            <div class="plan">
+                <h3 class="@bouteille.couleur.getName()">@bouteille.appellation<span>$59</span></h3>
+                <a class="signup" href="@routes.BouteillesController.bottleDetails(bouteille.id)">Détails</a>
+                <ul>
+                    <li>Millésime : <b>@bouteille.millesime</b></li>
+                    <li>Domaine : <b>@bouteille.domaine</b></li>
+                    <li>Ajoutée le : <b>@bouteille.date_creation.format("dd MMM yyyy")</b></li>
+                </ul>
+            </div>
+        }
+    </div>
 </div>

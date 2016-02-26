@@ -7,7 +7,7 @@ import models.User;
  * Created by val on 22/10/15.
  */
 public class CaveManager {
-    public static Cave create(String cave_name, User currUser){
+    public static Cave create(User currUser){
         Cave cave = new Cave(currUser);
         cave.save();
         currUser.caves.add(cave);

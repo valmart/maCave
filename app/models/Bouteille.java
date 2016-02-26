@@ -28,8 +28,6 @@ public class Bouteille extends Model {
 
     public Couleur          couleur;
 
-    public int              degre_alcool;
-
     public int              volume_bouteille;
 
     public String           qr_code;
@@ -38,7 +36,9 @@ public class Bouteille extends Model {
 
     public Boolean          isAvailable;
 
-    public Date             date_ouverture;
+    public Boolean          isGift;
+
+    public Date             date_utilisation;
 
     public Date             date_creation;
 

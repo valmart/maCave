@@ -45,7 +45,7 @@ public class UsersController extends Controller {
             return badRequest(views.html.signup.render(filledForm));
         } else {
             User user = UserManager.create(filledForm.get());
-            Cave cave = CaveManager.create(filledForm.get().cave_name, user);
+            Cave cave = CaveManager.create(user);
             UserManager.authenticate(filledForm.get().email, filledForm.get().password);
             // TODO Renvoyer vers la cave tout juste créée
         }

@@ -20,8 +20,4 @@ public class SignupForm {
     @Constraints.Required
     @Constraints.MinLength(5)
     public String password;
-
-    @Constraints.Required
-    @Constraints.MinLength(5)
-    public String cave_name;
 }

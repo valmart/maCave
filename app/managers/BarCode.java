@@ -40,7 +40,7 @@ public class BarCode {
         try {
             Map hintMap = new HashMap();
             hintMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);
-            createQRCode(qrCodeData, filePath, charset, hintMap, 150, 150);
+            createQRCode(qrCodeData, filePath, charset, hintMap, 250, 250);
             System.out.println("QR Code image created successfully! filePath : " + filePath);
             //System.out.println("Data read from QR Code: " + readQRCode(filePath, charset, hintMap));
         } catch (Exception e){

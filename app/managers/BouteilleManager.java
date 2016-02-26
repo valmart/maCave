@@ -25,7 +25,6 @@ public class BouteilleManager {
             bouteille.millesime = bouteilleForm.millesime;
             bouteille.couleur = bouteilleForm.couleur;
             bouteille.date_creation = new Date();
-            bouteille.degre_alcool = bouteilleForm.degre_alcool;
             bouteille.volume_bouteille = bouteilleForm.volume_bouteille;
             bouteille.isAvailable = true;
             bouteille.derniere_modification = new Date();

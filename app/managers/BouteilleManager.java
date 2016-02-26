@@ -26,18 +26,15 @@ public class BouteilleManager {
             bouteille.isAvailable = true;
             bouteille.derniere_modification = new Date();
             bouteille.save();
-            BarCode barCode = new BarCode(bouteille.id);
-            bouteille.qr_code = barCode.path;
+            //BarCode barCode = new BarCode(bouteille.id);
+            bouteille.qr_code = BarCode.addToBottle(bouteille.id);
             bouteille.cave = cave;
             bouteille.update();
             cave.bouteilles.add(bouteille);
+            cave.bouteille_max = (cave.bouteille_max > cave.bouteilles.size() ? cave.bouteille_max:cave.bouteilles.size());
             i--;
         }
         cave.update();
-    }
-
-    public static void  addQR(Bouteille bouteille, BarCode qr){
-        bouteille.qr_code = qr.path;
     }
 
     @Transactional

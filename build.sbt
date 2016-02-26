@@ -22,6 +22,8 @@ libraryDependencies += "mysql" % "mysql-connector-java" % "5.1.18"
 
 libraryDependencies += "com.google.zxing" % "core" % "3.2.1"
 
+libraryDependencies += "com.google.zxing" % "javase" % "3.2.1"
+
 libraryDependencies += "org.mindrot" % "jbcrypt" % "0.3m"
 
 

@@ -1,59 +1,29 @@
 @(inForm: Form[_])
 
-@import helper._
-
 @main("cavavin") {
-@helper.form(routes.UsersController.doLogin(), 'class -> "signup-form form-horizontal") {
-<div class="container">
+
+<div class="container" style="background:url(@routes.Assets.versioned("images/bg.jpg")) no-repeat top center;width=100%;height:100vh;">
     <div class="row">
-        <div class="row clearfix">
-            <div class="col-xs-12">
-                <fieldset>
-                    <div class="row">
-                        <div class="col-sm-4 col-sm-offset-4">
-                            <center>
-                                <h1>Se connecter</h1>
-                            </center>
-                            @if(inForm.hasGlobalErrors) {
+        <div class="col-lg-offset-4 col-lg-4" style="margin-top:100px">
+            <h1>Se Connecter</h1>
+            <div class="block-unit" style="text-align:center; padding:8px 8px 8px 8px;">
+                @helper.form(routes.UsersController.doLogin(), 'class -> "cmxform", 'id -> "signUpForm") {
+                    <fieldset>
+                        <p>
+                            <input id="email" name="email" placeholder="Email" type="text" class="form-control">
+                            <input id="password" name="password" placeholder="Mot de passe" type="password" class="form-control">
+                        </p>
+                        @if(inForm.hasGlobalErrors) {
                             <span class="error">@inForm.globalError.message</span>
-                            }
-                        </div>
-                    </div>
-                    <div class="col-sm-4 col-sm-offset-4">
-                        <div">
-                            @inputText(
-                            inForm("email"),
-                            'class -> "form-control",
-                            '_showConstraints -> false,
-                            'placeholder -> "Email"
-                            )
-                            @inputPassword(
-                            inForm("password"),
-                            'class -> "form-control",
-                            '_showConstraints -> false,
-                            'placeholder -> "Mot de passe"
-                            )
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <a href="">Mot de passe oublié ?</a>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <button type="submit" class="btn btn-blue col-xs-12">Valider</button>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-sm-12">
-                                    <a href="@routes.UsersController.signup()">Créer un compte</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </fieldset>
+                        }
+                        <input class="submit btn-success btn btn-large form-control" type="submit" value="Login">
+                        <a class="" href="@routes.UsersController.signup()">Créer un compte</a>
+                    </fieldset>
+                }
             </div>
         </div>
     </div>
 </div>
 }
-}
+
+<script src="@routes.Assets.versioned("javascripts/bootstrap.js")" type="text/javascript"></script>

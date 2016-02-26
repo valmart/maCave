@@ -8,7 +8,7 @@ import models.User;
  */
 public class CaveManager {
     public static Cave create(String cave_name, User currUser){
-        Cave cave = new Cave(cave_name, currUser);
+        Cave cave = new Cave(currUser);
         cave.save();
         currUser.caves.add(cave);
         currUser.update();

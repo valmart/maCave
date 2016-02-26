@@ -3,9 +3,11 @@ package managers;
 import forms.BouteilleForm;
 import models.Bouteille;
 import models.Cave;
+import models.Couleur;
 import play.db.ebean.Transactional;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by val on 19/09/15.
@@ -42,5 +44,45 @@ public class BouteilleManager {
     public static void  delete(Bouteille bouteille){
         bouteille.isAvailable = false;
         bouteille.update();
+    }
+
+    public static List<Bouteille> getAvailableBottles(){
+        return Bouteille.find.where()
+                .eq("isAvailable", true)
+                .findList();
+    }
+
+    public static List<Bouteille>   getAvailableRedBottles(){
+        return Bouteille.find.where()
+                .eq("isAvailable", true)
+                .eq("couleur", Couleur.ROUGE)
+                .findList();
+    }
+
+    public static List<Bouteille>   getAvailableWhiteBottles(){
+        return Bouteille.find.where()
+                .eq("isAvailable", true)
+                .eq("couleur", Couleur.BLANC)
+                .findList();
+    }
+
+    public static List<Bouteille>   getAvailableRoseBottles(){
+        return Bouteille.find.where()
+                .eq("isAvailable", true)
+                .eq("couleur", Couleur.ROSE)
+                .findList();
+    }
+
+    public static List<Bouteille>   getAvailableOtherBottles(){
+        return Bouteille.find.where()
+                .eq("isAvailable", true)
+                .eq("couleur", Couleur.AUTRE)
+                .findList();
+    }
+
+    public static List<Bouteille>   getDrunkBottles(){
+        return Bouteille.find.where()
+                .eq("isAvailable", false)
+                .findList();
     }
 }

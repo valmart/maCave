@@ -22,21 +22,11 @@ public class User extends Model{
 
     @Column(nullable = false, unique=true)
     public String       email;
-    public boolean      is_email_validated;
-    @Column(unique=true)
-    public String       nickname;
-    @Column(nullable = false)
-    public String       password;
 
-    public String       first_name;
-    public String       last_name;
-    @Formats.DateTime(pattern="dd/MM/yyyy")
-    public Date         birth_date;
+    public String       password;
 
     @OneToMany(mappedBy = "owner")
     public List<Cave>   caves;
-    //@OneToMany(cascade = CascadeType.ALL, mappedBy="account")
-    //public List<String> pictures_url; // Todo : créer un objet pour stocker les images toussa toussa
 
     @Formats.DateTime(pattern="dd/MM/yyyy HH:mm:ss")
     public Date         creation_date;
@@ -48,6 +38,8 @@ public class User extends Model{
         String hashPassword = BCrypt.hashpw(password, BCrypt.gensalt());
         this.password = hashPassword;
         this.caves = new ArrayList<>();
+        this.creation_date = new Date();
+        this.last_connection_date = new Date();
     }
 
     public static Finder<Long, User> find = new Finder<Long, User>(Long.class, User.class);

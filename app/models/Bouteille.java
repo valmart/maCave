@@ -47,44 +47,4 @@ public class Bouteille extends Model {
     }
 
     public static Finder<Long, Bouteille> find = new Finder<Long, Bouteille>(Long.class, Bouteille.class);
-
-    public static List<Bouteille> getAvailableBottles(){
-        return find.where()
-                .eq("isAvailable", true)
-                .findList();
-    }
-
-    public static List<Bouteille>   getAvailableRedBottles(){
-        return find.where()
-                .eq("isAvailable", true)
-                .eq("couleur", Couleur.ROUGE)
-                .findList();
-    }
-
-    public static List<Bouteille>   getAvailableWhiteBottles(){
-        return find.where()
-                .eq("isAvailable", true)
-                .eq("couleur", Couleur.BLANC)
-                .findList();
-    }
-
-    public static List<Bouteille>   getAvailableRoseBottles(){
-        return find.where()
-                .eq("isAvailable", true)
-                .eq("couleur", Couleur.ROSE)
-                .findList();
-    }
-
-    public static List<Bouteille>   getAvailableOtherBottles(){
-        return find.where()
-                .eq("isAvailable", true)
-                .eq("couleur", Couleur.AUTRE)
-                .findList();
-    }
-
-    public static List<Bouteille>   getDrunkBottles(){
-        return find.where()
-                .eq("isAvailable", false)
-                .findList();
-    }
 }

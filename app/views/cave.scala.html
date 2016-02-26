@@ -45,10 +45,10 @@
                     <hr>
                     <div class="cont">
                         <p><bold>@cave.bouteilles.size()</bold> | <ok>Bouteilles Ajoutées</ok></p>
-                        <p>dont <bold>0</bold> | Reçues <i class="fa fa-2x fa-gift"></i></p>
+                        <p>dont <bold>@Bouteille.getGiftBottles(cave).size()</bold> | Reçues <i class="fa fa-2x fa-gift"></i></p>
                         <br>
-                        <p><bold>@Bouteille.getDrunkBottles(cave).size()</bold> | <bad>Bouteilles Consommés</bad></p>
-                        <p>dont <bold>0</bold> | Offertes <i class="fa fa-2x fa-gift"></i></p>
+                        <p><bold>@Bouteille.getDrunkBottles(cave).size()</bold> | <bad>Bouteilles Consommées</bad></p>
+                        <p>dont <bold>@Bouteille.getGiveAsGiftBottles(cave).size()</bold> | Offertes <i class="fa fa-2x fa-gift"></i></p>
                         <br>
                     </div>
 
@@ -71,7 +71,14 @@
                 </div>
             </div>
         </div>
-        @liste_bouteille(cave.bouteilles)
+        <h2>ROUGE</h2>
+        @liste_bouteille(Bouteille.getAvailableRedBottles(cave))
+        <h2>ROSE</h2>
+        @liste_bouteille(Bouteille.getAvailableRoseBottles(cave))
+        <h2>BLANC</h2>
+        @liste_bouteille(Bouteille.getAvailableWhiteBottles(cave))
+        <h2>AUTRE</h2>
+        @liste_bouteille(Bouteille.getAvailableOtherBottles(cave))
     </div>
 }
 

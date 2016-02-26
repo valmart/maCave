@@ -922,7 +922,7 @@ body{
 #pricing-table {
 	margin: 100px auto;
 	text-align: center;
-	width: 892px; /* total computed width = 222 x 3 + 226 */
+	width: 1372px; /* total computed width = 342 x 3 + 346 */
 }
 
 #pricing-table .plan {
@@ -930,9 +930,10 @@ body{
 	text-shadow: 0 1px rgba(255,255,255,.8);
 	background: #fff;
 	border: 1px solid #ddd;
+	margin: 10px;
 	color: #333;
 	padding: 20px;
-	width: 180px; /* plan width = 180 + 20 + 20 + 1 + 1 = 222px */
+	width: 300px; /* plan width = 300 + 20 + 20 + 1 + 1 = 342px */
 	float: left;
 	position: relative;
 }

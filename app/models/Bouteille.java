@@ -38,6 +38,8 @@ public class Bouteille extends Model {
 
     public Boolean          isGift;
 
+    public Boolean          giveAsGift;
+
     public Date             date_utilisation;
 
     public Date             date_creation;
@@ -92,6 +94,20 @@ public class Bouteille extends Model {
     public static List<Bouteille>   getDrunkBottles(Cave cave){
         return Bouteille.find.where()
                 .eq("isAvailable", false)
+                .eq("cave.owner", cave.owner)
+                .findList();
+    }
+
+    public static List<Bouteille>   getGiftBottles(Cave cave){
+        return Bouteille.find.where()
+                .eq("isGift", true)
+                .eq("cave.owner", cave.owner)
+                .findList();
+    }
+
+    public static List<Bouteille>   getGiveAsGiftBottles(Cave cave){
+        return Bouteille.find.where()
+                .eq("giveAsGift", true)
                 .eq("cave.owner", cave.owner)
                 .findList();
     }

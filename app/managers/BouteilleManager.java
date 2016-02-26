@@ -27,6 +27,8 @@ public class BouteilleManager {
             bouteille.date_creation = new Date();
             bouteille.volume_bouteille = bouteilleForm.volume_bouteille;
             bouteille.isAvailable = true;
+            bouteille.isGift = false;
+            bouteille.giveAsGift = false;
             bouteille.derniere_modification = new Date();
             bouteille.save();
             bouteille.qr_code = BarCode.addToBottle(bouteille.id);
@@ -44,5 +46,11 @@ public class BouteilleManager {
     public static void  delete(Bouteille bouteille){
         bouteille.isAvailable = false;
         bouteille.update();
+    }
+
+    @Transactional
+    public static void give(Bouteille bouteille){
+        bouteille.giveAsGift = true;
+        BouteilleManager.delete(bouteille);
     }
 }

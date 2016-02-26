@@ -15,6 +15,7 @@ create table bouteille (
   prix_achat                integer,
   is_available              boolean,
   is_gift                   boolean,
+  give_as_gift              boolean,
   date_utilisation          timestamp,
   date_creation             timestamp,
   derniere_modification     timestamp,

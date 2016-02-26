@@ -17,6 +17,7 @@ GET     /cave                       controllers.CaveController.showCave()
 
 GET     /bottle/:id                 controllers.BouteillesController.bottleDetails(id: Long)
 
+GET     /bottle/giveAsGift/:id      controllers.BouteillesController.giveBottleAsGift(id: Long)
 GET     /bottle/delete/:id          controllers.BouteillesController.deleteBottle(id: Long)
 
 GET     /addBouteille               controllers.BouteillesController.addBottle()

@@ -41,7 +41,14 @@ public class BouteillesController extends Controller {
     public static Result    deleteBottle(Long id){
         Bouteille bouteille = Bouteille.find.byId(id);
         BouteilleManager.delete(bouteille);
-        flash(Application.FLASH_MESSAGE, "Your bottle have been deleted");
+        flash(Application.FLASH_MESSAGE, "La bouteille est inscrite comme consommée");
+        return redirect(routes.CaveController.showCave());
+    }
+
+    public static Result    giveBottleAsGift(Long id){
+        Bouteille bouteille = Bouteille.find.byId(id);
+        BouteilleManager.give(bouteille);
+        flash(Application.FLASH_MESSAGE, "La bouteille est inscrite comme offerte");
         return redirect(routes.CaveController.showCave());
     }
 }

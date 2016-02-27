@@ -49,7 +49,7 @@ public class UsersController extends Controller {
             UserManager.authenticate(filledForm.get().email, filledForm.get().password);
             // TODO Renvoyer vers la cave tout juste créée
         }
-        return redirect(controllers.routes.Application.index());
+        return redirect(routes.CaveController.showCave());
     }
 
     public static Result logout(){

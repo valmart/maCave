@@ -58,14 +58,14 @@ h5 {
 	margin-bottom: 30px;
 	padding-bottom:10px;
 	border: 1px solid #383737;
-	background-image:url('../images/sep-half.png');
-	background-color: #3d3d3d;
+	#background-image:url('../images/sep-half.png');
+	background-color: #2c3e50;
 	color:white;
 	height:290px;
 }
 
 .dash-unit:hover {
-	background-color: #4f4f4f;
+	background-color: #2c3e50;
 	-moz-box-shadow:    3px 3px 2px 0px #151515;
     -webkit-box-shadow: 3px 3px 2px 0px #151515;
     box-shadow:         3px 3px 2px 0px #151515;
@@ -161,14 +161,14 @@ h5 {
 	margin-bottom: 30px;
 	padding-bottom: 4px;
 	border: 1px solid #383737;
-	background-image:url('../images/sep-half.png');
-	background-color: #3d3d3d;
+	#background-image:url('../images/sep-half.png');
+	background-color: #2c3e50;
 	color:white;
 	height:130px;
 }
 
 .half-unit:hover {
-	background-color: #4f4f4f;
+	background-color: #2c3e50;
 	-moz-box-shadow:    3px 3px 2px 0px #151515;
     -webkit-box-shadow: 3px 3px 2px 0px #151515;
     box-shadow:         3px 3px 2px 0px #151515;
@@ -380,7 +380,7 @@ digiclock {
     margin-left: -18px;
 }
 .framemail .window .mail li {
-    background-color:#3d3d3d;
+    background-color:#2c3e50;
     background-image: -webkit-linear-gradient(hsla(0,0%,100%,.05), hsla(0,0%,0%,.05));
     background-image:    -moz-linear-gradient(hsla(0,0%,100%,.05), hsla(0,0%,0%,.05));
     background-image:     -ms-linear-gradient(hsla(0,0%,100%,.05), hsla(0,0%,0%,.05));

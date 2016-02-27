@@ -2,7 +2,7 @@
 
 @main("cavavin") {
 
-<div class="container" style="background:url(@routes.Assets.versioned("images/bg.jpg")) no-repeat top center;width=100%;height:100vh;">
+<div class="container">
     <div class="row">
         <div class="col-lg-offset-4 col-lg-3" style="margin-top:100px">
             <h1>Se Connecter</h1>
@@ -17,10 +17,12 @@
                             <span class="error">@inForm.globalError.message</span>
                         }
                         <input class="submit btn-success btn btn-large form-control" type="submit" value="Login">
-                        <a class="" href="@routes.UsersController.signup()">Créer un compte</a>
                     </fieldset>
                 }
             </div>
+            <p>
+                Pas encore de cave ? C'est <a class="" href="@routes.UsersController.signup()">par ici</a>
+            </p>
         </div>
     </div>
 </div>

@@ -1,25 +1,37 @@
 @(form: Form[_])
 
 @main("Welcome to Play") {
-
-<div class="container">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Ajouter une bouteille</h3>
-        </div>
-        <div class="panel-body">
-            @helper.form(action = routes.BouteillesController.doAddBottle()) {
-            @helper.inputText(form("domaine"))
-            @helper.inputText(form("appellation"))
-            @helper.inputText(form("millesime"), 'type -> "number")
-            @helper.select(form("couleur"), models.Couleur.getCouleurs().map(n => n.getCode -> n.getName), '_default -> "Selectionnez une couleur")
-            @helper.inputText(form("volume_bouteille"), 'type -> "number")
-            @helper.inputText(form("degre_alcool"), 'type -> "number")
-            @helper.inputText(form("nbr_bouteille"), 'type -> "number")
-            <button class="btn-default btn" type="submit">VALIDATE</button>
-            }
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-offset-4 col-lg-3" style="margin-top:100px">
+                <h1>Ajouter des bouteilles</h1>
+                <div class="block-unit" style="text-align:center; padding:8px 8px 8px 8px;">
+                @helper.form(routes.BouteillesController.doAddBottle(), 'class -> "cmxform", 'id -> "signUpForm") {
+                    <fieldset>
+                        <p>
+                            <label for="domaine">Domaine</label>
+                            <input id="domaine" name="domaine" value="" type="text">
+                            <label for="appellation">Appellation</label>
+                            <input id="appellation" name="appellation" value="" type="text">
+                            <label for="millesime">Millesime</label>
+                            <input id="millesime" name="millesime" value="2014" type="number">
+                            @helper.select(form("couleur"), models.Couleur.getCouleurs().map(n => n.getCode -> n.getName), '_default -> "Selectionnez une couleur")
+                            <label for="volume_bouteille">Volume des bouteilles (cl)</label>
+                            <input id="volume_bouteille" name="volume_bouteille" value="70" type="number">
+                            <label for="nbr_bouteille">Nombre de bouteilles</label>
+                            <input id="nbr_bouteille" name="nbr_bouteille" value="1" type="number">
+                        </p>
+                        @if(form.hasGlobalErrors) {
+                            <span>@form.globalError.message</span>
+                        }
+                        <input class="submit btn-success btn btn-large form-control" type="submit" value="Ajouter">
+                    </fieldset>
+                }
+                </div>
+                <p>
+                    Vous avez déja une cave ? C'est <a href="@routes.UsersController.login()">par ici</a>
+                </p>
+            </div>
         </div>
     </div>
-</div>
-
 }

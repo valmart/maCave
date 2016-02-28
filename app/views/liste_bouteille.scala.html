@@ -7,7 +7,7 @@
                 <h3 class="@bouteille.couleur.getName()">@bouteille.appellation<span>@bouteille.millesime</span></h3>
                 <a class="signup" href="@routes.BouteillesController.bottleDetails(bouteille.id)">Détails</a>
                 @if(bouteille.isGift == true){
-                    <i class="fa fa-3x fa-gift"></i>
+                    <i class="fa fa-3x fa-gift" alt="C'est un cadeau !" style="cursor:default"></i>
                 }
                 <ul>
                     <li>Domaine : <b>@bouteille.domaine</b></li>

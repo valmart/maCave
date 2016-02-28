@@ -23,4 +23,7 @@ public class BouteilleForm {
 
     @Constraints.Required
     public int              nbr_bouteille;
+
+    @Constraints.Required
+    public boolean          isGift;
 }

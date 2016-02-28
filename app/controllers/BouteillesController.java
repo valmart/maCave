@@ -24,6 +24,7 @@ public class BouteillesController extends Controller {
 
     public static Result doAddBottle() {
         Form<BouteilleForm> form = form(BouteilleForm.class).bindFromRequest();
+        System.out.println(form);
         if (form.hasErrors())
             return badRequest(views.html.creation_bouteille.render(form));
         Cave cave = Application.getLocalUser(session()).caves.get(0);

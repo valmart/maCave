@@ -27,7 +27,7 @@ public class BouteilleManager {
             bouteille.date_creation = new Date();
             bouteille.volume_bouteille = bouteilleForm.volume_bouteille;
             bouteille.isAvailable = true;
-            bouteille.isGift = false;
+            bouteille.isGift = (bouteilleForm.isGift == true ? true : false);
             bouteille.giveAsGift = false;
             bouteille.derniere_modification = new Date();
             bouteille.save();
@@ -35,8 +35,7 @@ public class BouteilleManager {
             bouteille.cave = cave;
             bouteille.update();
             cave.bouteilles.add(bouteille);
-            if (cave.bouteille_max < cave.bouteilles.size())
-                cave.bouteille_max = cave.bouteilles.size();
+            cave.bouteille_max = (cave.bouteille_max < Bouteille.getAvailableBottles(cave).size() ? Bouteille.getAvailableBottles(cave).size(): cave.bouteille_max);
             i--;
         }
         cave.update();

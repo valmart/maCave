@@ -9,6 +9,7 @@
         </div>
         <div class="panel-body">
             <img src=@routes.Assets.versioned(bouteille.qr_code)>
+            <a class="button" href="@routes.Assets.versioned(bouteille.qr_code)" download="QR_code_@bouteille.domaine.concat("_" + bouteille.domaine + "_" + bouteille.millesime + ".jpg")">Télécharger le QR code</a>
         </div>
         <div class="panel-footer">
             <div class="dropdown">

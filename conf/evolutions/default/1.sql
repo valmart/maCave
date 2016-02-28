@@ -12,7 +12,6 @@ create table bouteille (
   couleur                   varchar(5),
   volume_bouteille          integer,
   qr_code                   varchar(255),
-  prix_achat                integer,
   is_available              boolean,
   is_gift                   boolean,
   give_as_gift              boolean,

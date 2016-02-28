@@ -3,28 +3,27 @@
 @import helper._
 
 @main("cavavin") {
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-offset-4 col-lg-3" style="margin-top:100px">
-                <h2>Créer une cave</h2>
-                <div class="block-unit" style="text-align:center; padding:8px 8px 8px 8px;">
-                @helper.form(routes.UsersController.doSignup(), 'class -> "cmxform", 'id -> "signUpForm") {
-                    <fieldset>
-                        <p>
-                            <input id="email" name="email" value="" class="form-control" placeholder="Email" type="text">
-                            <input id="password" name="password" class="form-control" placeholder="Mot de passe" type="password">
-                        </p>
-                        @if(inForm.hasGlobalErrors) {
-                            <span>@inForm.globalError.message</span>
-                        }
-                        <input class="submit btn-success btn btn-large form-control" type="submit" value="Créer ma cave">
-                    </fieldset>
-                }
+
+    <div class="clearfix sign-in-container">
+        <div class="col-xs-12 text-center">
+        @helper.form(routes.UsersController.doSignup(), 'class -> "cmxform", 'id -> "signUpForm") {
+            <h1>Créer ma cave</h1>
+            <legend>Pas encore de cave ?</legend>
+            <div class="form-group  " id="email_field">
+                <div class="col-sm-12">
+                    <input id="email" name="email" value="" class="form-control" placeholder="Email" type="text">
+                    <input id="password" name="password" class="form-control" placeholder="Mot de passe" type="password">
+                    @if(inForm.hasGlobalErrors) {
+                        <span>@inForm.globalError.message</span>
+                    }
                 </div>
-                <p>
-                    Vous avez déja une cave ? C'est <a href="@routes.UsersController.login()">par ici</a>
-                </p>
             </div>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <input class="submit btn btn-large form-control" type="submit" value="Créer ma cave">
+                </div>
+            </div>
+        }
         </div>
     </div>
 }

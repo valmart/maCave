@@ -15,6 +15,11 @@ GET     /logout                     controllers.UsersController.logout()
 
 GET     /cave                       controllers.CaveController.showCave()
 
+#GET     /redBottles                 controllers.BouteillesController.getRedBottles()
+#GET     /roseBottles                controllers.BouteillesController.getRoseBottles()
+#GET     /whiteBottles               controllers.BouteillesController.getWhiteBottles()
+#GET     /otherBottles               controllers.BouteillesController.getOtherBottles()
+
 GET     /bottle/:id                 controllers.BouteillesController.bottleDetails(id: Long)
 
 GET     /bottle/giveAsGift/:id      controllers.BouteillesController.giveBottleAsGift(id: Long)

@@ -4,6 +4,7 @@ import forms.BouteilleForm;
 import managers.BouteilleManager;
 import models.Bouteille;
 import models.Cave;
+import models.User;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;

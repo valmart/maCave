@@ -20,6 +20,8 @@
                             <input id="volume_bouteille" name="volume_bouteille" value="70" type="number">
                             <label for="nbr_bouteille">Nombre de bouteilles</label>
                             <input id="nbr_bouteille" name="nbr_bouteille" value="1" type="number">
+                            <label for="isGift">C'est un cadeau</label>
+                            <input type="checkbox" id="isGift" name="isGift" value="true">
                         </p>
                         @if(form.hasGlobalErrors) {
                             <span>@form.globalError.message</span>

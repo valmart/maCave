@@ -286,9 +286,10 @@ h5 {
 input[type=submit] {
 	font-family: 'Open Sans', sans-serif;
 	font-size: 15px;
-	background: #b2c831;
+	background: #2c3e50;
 	color: #fff;
 	border: none;
+	margin-top: 20px;
 	padding: 8px 28px 10px 26px;
 	  *-webkit-border-radius: 4px;
      -moz-border-radius: 4px;
@@ -296,16 +297,16 @@ input[type=submit] {
 
 }
 input[type=text], textarea {
-	background: #cdcbcc;
-	font-size: 13px;
+	#background: #cdcbcc;
+	#font-size: 13px;
 	display: block;
 	width: 100%;
-	border: none;
+	#border: none;
 	box-shadow: none;
-	height: 30px;
-	line-height: 18px;
+	#height: 30px;
+	#line-height: 18px;
 	padding: 0;
-	text-indent: 18px;
+	text-indent: 10px;
 	margin: 0 0 18px;
 }
 textarea {
@@ -761,7 +762,7 @@ a {
 }
 
 a:hover {
-  color: #dff948;
+  color: #2c3e50;
   text-decoration: none;
 }
 
@@ -877,4 +878,17 @@ a:hover {
 .container {
 	width: 100% !important;
 	max-width: 100% !important;
+}
+
+.sign-in-container {
+	width: 25%;
+	min-width: 320px;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: #f5f7f5;
+	margin-top: 90px;
+	padding: 25px 25px 25px;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
 }

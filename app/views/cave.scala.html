@@ -58,7 +58,10 @@
                     <dtitle>QR Code de ma cave</dtitle>
                     <hr>
                     <div class="cont2">
-                        <img src=@routes.Assets.versioned(cave.qr_code) style="max-width:95%;padding-top:20px" alt="">
+                        <img src=@routes.Assets.versioned(cave.qr_code) style="width:150px;max-width:95%;padding-top:20px" alt="">
+                        <br>
+                        <br>
+                        <a class="button" href="@routes.Assets.versioned(cave.qr_code)" download="QR_code_de_ma_cave.jpg">Télécharger mon QR code</a>
                     </div>
                 </div>
             </div>

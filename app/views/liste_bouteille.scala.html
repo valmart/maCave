@@ -3,10 +3,12 @@
 <div class="container">
     <div id="pricing-table" class="clear">
         @for(bouteille <- bouteilles) {
-            <div class="plan col-lg-2">
+            <div class="plan col-xs-12 col-sm-4 col-md-3 col-lg-2">
                 <h3 class="@bouteille.couleur.getName()">@bouteille.appellation<span>@bouteille.millesime</span></h3>
                 <a class="signup" href="@routes.BouteillesController.bottleDetails(bouteille.id)">Détails</a>
-                <i class="fa fa-3x fa-gift"></i>
+                @if(bouteille.isGift == true){
+                    <i class="fa fa-3x fa-gift"></i>
+                }
                 <ul>
                     <li>Domaine : <b>@bouteille.domaine</b></li>
                     <li>Volume : <b>@bouteille.volume_bouteille</b> cl</li>

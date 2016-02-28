@@ -930,9 +930,10 @@ body{
 	text-shadow: 0 1px rgba(255,255,255,.8);
 	background: #fff;
 	border: 1px solid #ddd;
-	margin: 10px;
+	#margin: 5px;
 	color: #333;
 	padding: 20px;
+	border-radius: 5px;
 	#width: 300px; /* plan width = 300 + 20 + 20 + 1 + 1 = 342px */
 	#float: left;
 	#position: relative;
@@ -970,6 +971,7 @@ body{
 	font-weight: normal;
 	padding: 20px;
 	margin: -20px -20px 50px -20px;
+	border-radius: 5px;
 	background-color: #eee;
 	background-image: -moz-linear-gradient(#B9121B,#eee);
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#B9121B), to(#eee));
@@ -983,6 +985,7 @@ body{
 	font-size: 20px;
 	font-weight: normal;
 	padding: 20px;
+	border-radius: 5px;
 	margin: -20px -20px 50px -20px;
 	background-color: #eee;
 	background-image: -moz-linear-gradient(#FFB6B8,#eee);
@@ -997,6 +1000,7 @@ body{
 	font-size: 20px;
 	font-weight: normal;
 	padding: 20px;
+	border-radius: 5px;
 	margin: -20px -20px 50px -20px;
 	background-color: #eee;
 	background-image: -moz-linear-gradient(#F6E497,#eee);
@@ -1011,6 +1015,7 @@ body{
 	font-size: 20px;
 	font-weight: normal;
 	padding: 20px;
+	border-radius: 5px;
 	margin: -20px -20px 50px -20px;
 	background-color: #eee;
 	background-image: -moz-linear-gradient(#B09F91,#eee);
@@ -1031,21 +1036,21 @@ body{
 	background-image: linear-gradient(#eee, #ddd);
 	margin-top: -30px;
 	padding-top: 30px;
-	-moz-border-radius: 5px 5px 0 0;
-	-webkit-border-radius: 5px 5px 0 0;
-	border-radius: 5px 5px 0 0;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
 }
 
 #pricing-table .plan:nth-child(1) h3 {
-	-moz-border-radius: 5px 0 0 0;
-	-webkit-border-radius: 5px 0 0 0;
-	border-radius: 5px 0 0 0;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
 }
 
 #pricing-table .plan:nth-child(4) h3 {
-	-moz-border-radius: 0 5px 0 0;
-	-webkit-border-radius: 0 5px 0 0;
-	border-radius: 0 5px 0 0;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
 }
 
 #pricing-table h3 span {

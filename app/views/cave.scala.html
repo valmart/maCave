@@ -54,30 +54,47 @@
                 </div>
             </div>
             <div class="col-sm-3 col-lg-3">
-                <div class="half-unit">
-                    <dtitle>Date & Heure</dtitle>
+                <div class="dash-unit">
+                    <dtitle>QR Code de ma cave</dtitle>
                     <hr>
-                    <div class="clockcenter">
-                        <digiclock>12:45:25</digiclock>
-                    </div>
-                </div>
-                <div class="half-unit">
-                    <dtitle>Informations importantes</dtitle>
-                    <hr>
-                    <div class="cont">
-                        <p><img src=@routes.Assets.versioned("images/down.png") alt=""> La cave est presque vide !</p>
+                    <div class="cont2">
+                        <img src=@routes.Assets.versioned(cave.qr_code) alt="">
                     </div>
                 </div>
             </div>
         </div>
-        <h2>ROUGE</h2>
-        @liste_bouteille(Bouteille.getAvailableRedBottles(cave))
-        <h2>ROSE</h2>
-        @liste_bouteille(Bouteille.getAvailableRoseBottles(cave))
-        <h2>BLANC</h2>
-        @liste_bouteille(Bouteille.getAvailableWhiteBottles(cave))
-        <h2>AUTRE</h2>
-        @liste_bouteille(Bouteille.getAvailableOtherBottles(cave))
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Rouge</h3>
+            </div>
+            <div class="panel-body">
+                @liste_bouteille(Bouteille.getAvailableRedBottles(cave))
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Rosé</h3>
+            </div>
+            <div class="panel-body">
+                @liste_bouteille(Bouteille.getAvailableRoseBottles(cave))
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Blanc</h3>
+            </div>
+            <div class="panel-body">
+                @liste_bouteille(Bouteille.getAvailableWhiteBottles(cave))
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Autre</h3>
+            </div>
+            <div class="panel-body">
+                @liste_bouteille(Bouteille.getAvailableOtherBottles(cave))
+            </div>
+        </div>
     </div>
 }
 

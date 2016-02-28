@@ -1,6 +1,7 @@
 package models;
 
 import com.avaje.ebean.Model;
+import managers.BarCode;
 import play.data.format.Formats;
 
 import javax.persistence.*;
@@ -34,6 +35,8 @@ public class Cave extends Model {
     @Column(nullable = false)
     @Formats.DateTime(pattern="dd/MM/yyyy HH:mm:ss")
     public Date             last_update_date;
+
+    public String           qr_code;
 
     public static Finder<Long, Cave> find = new Finder<Long, Cave>(Long.class, Cave.class);
 

@@ -29,6 +29,7 @@ create table cave (
   valeur_max                double,
   creation_date             timestamp not null,
   last_update_date          timestamp not null,
+  qr_code                   varchar(255),
   constraint pk_cave primary key (id))
 ;
 

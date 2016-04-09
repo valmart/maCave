@@ -1,9 +1,4 @@
-language: java
-jdk:
-    - oraclejdk8
-env:
-  - PLAY_VERSION=2.2 # Latest 2.1.x
-before_script: 
-  - wget http://download.playframework.org/releases/play-2.2.6.zip
-  - unzip -q play-2.2.6.zip
-script: play-2.2.6/play test
+language: scala
+scala:
+   - 2.11.6
+script: sbt test

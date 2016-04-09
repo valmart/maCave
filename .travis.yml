@@ -1,4 +1,7 @@
 language: scala
-scala:
-   - 2.11.6
-script: activator run
+env:
+  - PLAY_VERSION=2.1.1
+before_script:
+  - wget http://downloads.typesafe.com/play/${PLAY_VERSION}/play-${PLAY_VERSION}.zip
+  - unzip -q play-${PLAY_VERSION}.zip
+script: play-${PLAY_VERSION}/play test

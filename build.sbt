@@ -1,4 +1,4 @@
-name := "cavavin"
+name := "maCave"
 
 version := "0.1-ALPHA"
 

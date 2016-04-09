@@ -28,6 +28,7 @@ public class BouteilleManager {
             bouteille.volume_bouteille = bouteilleForm.volume_bouteille;
             bouteille.isAvailable = true;
             bouteille.isGift = (bouteilleForm.isGift == true ? true : false);
+            bouteille.infos = bouteilleForm.infos;
             bouteille.giveAsGift = false;
             bouteille.derniere_modification = new Date();
             bouteille.save();
@@ -44,6 +45,7 @@ public class BouteilleManager {
     @Transactional
     public static void  delete(Bouteille bouteille){
         bouteille.isAvailable = false;
+        bouteille.date_utilisation = new Date();
         bouteille.update();
     }
 

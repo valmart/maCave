@@ -1,28 +1,63 @@
 @(bouteille: Bouteille)
 
 @main("Cavavin") {
-<div class="container">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">@bouteille.appellation</h3>
-            @bouteille.qr_code
-        </div>
-        <div class="panel-body">
-            <img src=@routes.Assets.versioned(bouteille.qr_code)>
-            <a class="button" href="@routes.Assets.versioned(bouteille.qr_code)" download="QR_code_@bouteille.domaine.concat("_" + bouteille.domaine + "_" + bouteille.millesime + ".jpg")">Télécharger le QR code</a>
-        </div>
-        <div class="panel-footer">
-            <div class="dropdown">
-                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                    Dropdown
-                    <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                    <li><a href="@routes.BouteillesController.deleteBottle(bouteille.id)">Boire cette bouteille</a></li>
-                    <li><a href="@routes.BouteillesController.giveBottleAsGift(bouteille.id)">Offir cette bouteille</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li><a href="#">Separated link</a></li>
-                </ul>
+<div class="container col-xs-12" style="padding-top:80px">
+    <div id="pricing-table" class="clear">
+        <div class="plan col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+            <h3 class="@bouteille.couleur.getName()">@bouteille.appellation<span>@bouteille.millesime</span></h3>
+            @if(bouteille.isGift == true){
+                <i class="fa fa-3x fa-gift" alt="C'est un cadeau !" style="cursor:default"></i>
+            }
+            <ul class="col-sm-6">
+                <li class="capitalize">Domaine : <b>@bouteille.domaine</b></li>
+                <li>Volume : <b>@bouteille.volume_bouteille</b> cl</li>
+                <li>Ajoutée le : <b>@bouteille.date_creation.format("dd MMM yyyy")</b></li>
+            </ul>
+            <ul class="col-sm-6">
+                <li>
+                @if(bouteille.isAvailable==true){
+                    <span class="success">Cette bouteille est disponible</span>
+                }else{
+                    <span class="error">Cette bouteille n'est plus dans ma cave</span>
+                }
+                </li>
+                <li>
+                @if(bouteille.isGift==true){
+                    C'est un cadeau !
+                }else{
+                    Achetée en magasin
+                }
+                </li>
+                <li>@if(bouteille.isAvailable==true){
+                    Pas encore consommée
+                }else{
+                    Consommée le : @bouteille.date_utilisation.format("dd MMM yyyy")
+                }</li>
+            </ul>
+            <div class="text-center col-sm-6">
+                <img src=@routes.Assets.versioned(bouteille.qr_code)><br>
+                <a class="button" href="@routes.Assets.versioned(bouteille.qr_code)" download="QR_code_@bouteille.domaine.concat("_" + bouteille.domaine + "_" + bouteille.millesime + ".jpg")">Télécharger le QR code</a>
+            </div>
+            <div class="panel panel-default col-sm-6" style="margin-top:25px">
+                <div class="panel-body">
+                    @bouteille.infos
+                </div>
+            </div>
+            <div class="col-xs-12">
+            @if(bouteille.isAvailable==true){
+                <div class="col-xs-12 col-sm-4">
+                    <br>
+                    <a class="btn-warning btn" href="@routes.BouteillesController.deleteBottle(bouteille.id)">Boire cette bouteille</a>
+                </div>
+                <div class="col-xs-12 col-sm-4">
+                    <br>
+                    <a class="btn-success btn" href="@routes.BouteillesController.giveBottleAsGift(bouteille.id)">Offir cette bouteille</a>
+                </div>
+            }
+                <div class="col-xs-12 col-sm-4">
+                    <br>
+                    <a class="btn-info btn" href="@routes.BouteillesController.giveBottleAsGift(bouteille.id)" disabled>Editer cette bouteille</a>
+                </div>
             </div>
         </div>
     </div>

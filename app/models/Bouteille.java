@@ -32,11 +32,13 @@ public class Bouteille extends Model {
 
     public String           qr_code;
 
-    //public int              prix_achat;
+    //public int            prix_achat;
 
     public Boolean          isAvailable;
 
     public Boolean          isGift;
+
+    public String           infos;
 
     public Boolean          giveAsGift;
 

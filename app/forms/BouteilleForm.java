@@ -11,8 +11,10 @@ public class BouteilleForm {
     @Constraints.Required
     public String           domaine;
 
+    @Constraints.Required
     public String           appellation;
 
+    @Constraints.Required
     public int              volume_bouteille;
 
     @Constraints.Required
@@ -26,4 +28,13 @@ public class BouteilleForm {
 
     @Constraints.Required
     public boolean          isGift;
+
+    public String           infos;
+
+    public String validate() {
+        if(nbr_bouteille < 1) {
+            return "Le nombre de bouteille doit être supérieur à 1";
+        }
+        return null;
+    }
 }

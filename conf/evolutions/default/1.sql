@@ -14,6 +14,7 @@ create table bouteille (
   qr_code                   varchar(255),
   is_available              boolean,
   is_gift                   boolean,
+  infos                     varchar(255),
   give_as_gift              boolean,
   date_utilisation          timestamp,
   date_creation             timestamp,

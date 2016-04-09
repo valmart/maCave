@@ -1,7 +1,7 @@
 @(form: Form[_])
 
 @main("Welcome to Play") {
-    <div class="clearfix add-bottle-container">
+    <div class="clearfix add-bottle-container col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
         @helper.form(routes.BouteillesController.doAddBottle(), 'class -> "cmxform", 'id -> "signUpForm") {
             <h1 class="text-center">Ajouter des bouteilles</h1>
             <legend></legend>
@@ -51,8 +51,14 @@
                     <input type="checkbox" id="isGift" name="isGift" value="true">
                 </div>
             </div>
-            @if(form.hasGlobalErrors) {
-                <span>@form.globalError.message</span>
+            <div class="form-group row">
+                <label class="col-xs-4" for="infos">Informations : </label>
+                <div class="col-xs-8">
+                    <textarea id="infos" name="infos" placeholder="Ex : Offert par... ou acheté à l'occasion de..."></textarea>
+                </div>
+            </div>
+            @if(form.hasErrors) {
+                <span>@form.errors</span>
             }
             <div class="form-group">
                 <div class="col-sm-12">

@@ -45,11 +45,10 @@ public class UsersController extends Controller {
             return badRequest(views.html.signup.render(filledForm));
         } else {
             User user = UserManager.create(filledForm.get());
-            Cave cave = CaveManager.create(user);
+            CaveManager.create(user);
             UserManager.authenticate(filledForm.get().email, filledForm.get().password);
-            // TODO Renvoyer vers la cave tout juste créée
+            return redirect(routes.CaveController.showCave());
         }
-        return redirect(routes.CaveController.showCave());
     }
 
     public static Result logout(){

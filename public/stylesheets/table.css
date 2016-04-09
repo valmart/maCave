@@ -982,6 +982,7 @@ body{
 }
 
 #pricing-table h3.Rose {
+	text-transform: capitalize;
 	font-size: 20px;
 	font-weight: normal;
 	padding: 20px;
@@ -997,6 +998,7 @@ body{
 }
 
 #pricing-table h3.Blanc {
+	text-transform: capitalize;
 	font-size: 20px;
 	font-weight: normal;
 	padding: 20px;
@@ -1012,6 +1014,7 @@ body{
 }
 
 #pricing-table h3 {
+	text-transform: capitalize;
 	font-size: 20px;
 	font-weight: normal;
 	padding: 20px;
@@ -1078,6 +1081,10 @@ body{
 	list-style: none;
 }
 
+.capitalize {
+	text-transform: capitalize !important;
+}
+
 #pricing-table li {
 	border-top: 1px solid #ddd;
 	padding: 10px 0;
@@ -1141,4 +1148,12 @@ body{
 
 .clear {
 	zoom:1
+}
+
+.error{
+	color: red;
+}
+
+.success{
+	color: green;
 }

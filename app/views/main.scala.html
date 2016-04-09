@@ -8,7 +8,6 @@
         <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
         <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/table.css")">
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href=@routes.Assets.versioned("stylesheets/bootstrap.css")>
@@ -33,16 +32,22 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="@routes.Application.index()">Cavavin</a>
+                    <a class="navbar-brand" href=@defining(controllers.Application.getLocalUser(session())) { user =>
+                        @if(user != null){
+                            "@routes.CaveController.showCave()"
+                        }else{
+                            "@routes.Application.index()"
+                        }>Cavavin</a>
+                    }
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                     @defining(controllers.Application.getLocalUser(session())) { user =>
                         @if(user == null) {
-                            <li><a href="@routes.UsersController.signup()">Sign up</a></li>
-                            <li><a href="@routes.UsersController.login()">Sign in</a></li>
+                            <li><a href="@routes.UsersController.signup()">S'inscrire</a></li>
+                            <li><a href="@routes.UsersController.login()">Se connecter</a></li>
                         } else {
-                            <li class="active"><a href="@routes.CaveController.showCave()">
+                            <li><a href="@routes.CaveController.showCave()">
                                 Ma Cave <span class="sr-only">(current)</span></a></li>
                             <li><a href="@routes.BouteillesController.addBottle()"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
                                 Ajouter des bouteilles</a></li>

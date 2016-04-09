@@ -13,7 +13,7 @@ public class LoginForm {
     }
 
     @Constraints.Required
-    @Constraints.MinLength(5)
+    @Constraints.MinLength(6)
     public String password;
 
     @Constraints.Required

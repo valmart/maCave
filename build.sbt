@@ -16,6 +16,8 @@ libraryDependencies ++= Seq(
   specs2 % Test
 )
 
+resolvers += "Scalaz Bintray - releases" at "https://dl.bintray.com/scalaz/releases/"
+
 libraryDependencies += "org.scala-lang" % "scala-library" % "2.11.6"
 
 libraryDependencies += "mysql" % "mysql-connector-java" % "5.1.18"

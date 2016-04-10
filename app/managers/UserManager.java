@@ -25,7 +25,7 @@ public class UserManager {
             newUser.save();
             return (newUser);
         }
-        return null;
+        return user;
     }
 
     public static AuthenticationState authenticate(String userMail, String password){

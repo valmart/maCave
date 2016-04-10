@@ -1,6 +1,8 @@
 // The Typesafe repository
 resolvers += "Typesafe repository" at "https://repo.typesafe.com/typesafe/releases/"
+
 resolvers += "Typesafe Snapshots" at "https://repo.typesafe.com/typesafe/snapshots/"
+
 resolvers += "scalaz-bintray" at "http://dl.bintray.com/scalaz/releases"
 
 // The Play plugin

@@ -11,8 +11,13 @@ import play.mvc.Result;
 public class CaveController extends Controller {
     public static Result showCave(){
         User currUser = Application.getLocalUser(session());
-        // Une seule cave par utilisateur (pour l'instant)
-        Cave cave = currUser.caves.get(0);
-        return (ok(views.html.cave.render(cave)));
+        if (currUser != null) {
+            if (currUser.caves.size() > 0) {
+                // Une seule cave par utilisateur (pour l'instant)
+                Cave cave = currUser.caves.get(0);
+                return (ok(views.html.cave.render(cave)));
+            }
+        }
+        return ok(views.html.index.render("Bienvenue sur cavavin"));
     }
 }

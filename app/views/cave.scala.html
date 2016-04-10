@@ -12,12 +12,10 @@
                     </div>
                 </div>
                 <div class="half-unit">
-                    <dtitle>Valeur de ma cave</dtitle>
+                    <dtitle>Historique</dtitle>
                     <hr>
                     <div class="cont">
-                        <p><bold>
-                            145.00 €</bold></p>
-                        <p><img src=@routes.Assets.versioned("images/up-small.png") alt=""> 200.00€ Max.</p>
+                        <a class="button" href="@routes.Assets.versioned(cave.qr_code)" download="QR_code_de_ma_cave.jpg">Accéder à l'historique</a>
                     </div>
                 </div>
             </div>
@@ -26,13 +24,13 @@
                     <dtitle>Coup d'oeil</dtitle>
                     <hr>
                     <div class="cont">
-                        <p><bold>@Bouteille.getAvailableRedBottles(cave).size()</bold> | Bouteilles de Rouge</p>
+                        <p><bold>@Bouteille.getAvailableRedBottles(cave).size()</bold> | <a class="button" href="@routes.BouteillesController.getBottleList("rouge")">Bouteilles de Rouge</a></p>
                         <br>
-                        <p><bold>@Bouteille.getAvailableRoseBottles(cave).size()</bold> | Bouteilles de Rosé</p>
+                        <p><bold>@Bouteille.getAvailableRoseBottles(cave).size()</bold> | <a class="button" href="@routes.BouteillesController.getBottleList("rose")">Bouteilles de Rosé</a></p>
                         <br>
-                        <p><bold>@Bouteille.getAvailableWhiteBottles(cave).size()</bold> | Bouteilles de Blanc</p>
+                        <p><bold>@Bouteille.getAvailableWhiteBottles(cave).size()</bold> | <a class="button" href="@routes.BouteillesController.getBottleList("blanc")">Bouteilles de Blanc</a></p>
                         <br>
-                        <p><bold>@Bouteille.getAvailableOtherBottles(cave).size()</bold> | Autres Bouteilles</p>
+                        <p><bold>@Bouteille.getAvailableOtherBottles(cave).size()</bold> | <a class="button" href="@routes.BouteillesController.getBottleList("autre")">Autres Bouteilles</a></p>
                         <br>
                     </div>
 

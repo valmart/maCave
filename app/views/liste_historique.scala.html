@@ -1,0 +1,12 @@
+@(cave: Cave)
+
+@main("Cavavin") {
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Autre</h3>
+        </div>
+        <div class="panel-body">
+        @liste_bouteille(Bouteille.getAvailableRedBottles(cave))
+        </div>
+    </div>
+}

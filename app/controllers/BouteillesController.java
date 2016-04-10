@@ -4,6 +4,7 @@ import forms.BouteilleForm;
 import managers.BouteilleManager;
 import models.Bouteille;
 import models.Cave;
+import models.Couleur;
 import models.User;
 import play.data.Form;
 import play.mvc.Controller;
@@ -24,7 +25,6 @@ public class BouteillesController extends Controller {
 
     public static Result doAddBottle() {
         Form<BouteilleForm> form = form(BouteilleForm.class).bindFromRequest();
-        System.out.println(form);
         if (form.hasErrors())
             return badRequest(views.html.creation_bouteille.render(form));
         Cave cave = Application.getLocalUser(session()).caves.get(0);
@@ -52,5 +52,17 @@ public class BouteillesController extends Controller {
         BouteilleManager.give(bouteille);
         flash(Application.FLASH_MESSAGE, "La bouteille est inscrite comme offerte");
         return redirect(routes.CaveController.showCave());
+    }
+
+    public static Result    getBottleList(String couleur){
+        Couleur enumColor = Couleur.valueOf(couleur.toUpperCase());
+        User currUser = Application.getLocalUser(session());
+        if (currUser != null) {
+            if (currUser.caves.size() > 0) {
+                Cave cave = currUser.caves.get(0);
+                return (ok(views.html.liste_page.render(cave, enumColor)));
+            }
+        }
+        return ok(views.html.index.render("Bienvenue sur cavavin"));
     }
 }

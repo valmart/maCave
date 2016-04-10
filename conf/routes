@@ -15,10 +15,7 @@ GET     /logout                     controllers.UsersController.logout()
 
 GET     /cave                       controllers.CaveController.showCave()
 
-#GET     /redBottles                 controllers.BouteillesController.getRedBottles()
-#GET     /roseBottles                controllers.BouteillesController.getRoseBottles()
-#GET     /whiteBottles               controllers.BouteillesController.getWhiteBottles()
-#GET     /otherBottles               controllers.BouteillesController.getOtherBottles()
+GET     /liste/:couleur             controllers.BouteillesController.getBottleList(couleur: String)
 
 GET     /bottle/:id                 controllers.BouteillesController.bottleDetails(id: Long)
 

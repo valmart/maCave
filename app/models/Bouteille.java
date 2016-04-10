@@ -61,6 +61,14 @@ public class Bouteille extends Model {
                 .findList();
     }
 
+    public static List<Bouteille>   getAvailableBottles(Cave cave, Couleur couleur){
+        return Bouteille.find.where()
+                .eq("isAvailable", true)
+                .eq("couleur", couleur)
+                .eq("cave.owner", cave.owner)
+                .findList();
+    }
+
     public static List<Bouteille>   getAvailableRedBottles(Cave cave){
         return Bouteille.find.where()
                 .eq("isAvailable", true)

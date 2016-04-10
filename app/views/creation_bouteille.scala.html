@@ -1,6 +1,7 @@
 @(form: Form[_])
 
 @main("Welcome to Play") {
+    <div class="row" style="height:100vh; background: url(@routes.Assets.versioned("images/caveavin.jpg")) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
     <div class="clearfix add-bottle-container col-xs-12 col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
         @helper.form(routes.BouteillesController.doAddBottle(), 'class -> "cmxform", 'id -> "signUpForm") {
             <h1 class="text-center">Ajouter des bouteilles</h1>
@@ -66,5 +67,6 @@
                 </div>
             </div>
         }
+    </div>
     </div>
 }

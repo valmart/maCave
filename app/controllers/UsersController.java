@@ -31,7 +31,7 @@ public class UsersController extends Controller {
             if (result == UserManager.AuthenticationState.AUTHENTICATED)
                 return redirect(routes.CaveController.showCave());
         }
-        return redirect(controllers.routes.Application.index());
+        return ok(views.html.signup.render(null));
     }
 
     public static Result    signup(){
@@ -45,6 +45,8 @@ public class UsersController extends Controller {
             return badRequest(views.html.signup.render(filledForm));
         } else {
             User user = UserManager.create(filledForm.get());
+            if (user == null)
+                return badRequest(views.html.signup.render(filledForm));
             CaveManager.create(user);
             UserManager.authenticate(filledForm.get().email, filledForm.get().password);
             return redirect(routes.CaveController.showCave());
@@ -53,6 +55,6 @@ public class UsersController extends Controller {
 
     public static Result logout(){
         UserManager.logout(ctx());
-        return redirect(controllers.routes.Application.index());
+        return ok(views.html.signin.render(null));
     }
 }

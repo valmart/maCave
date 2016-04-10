@@ -17,10 +17,15 @@ public class UserManager {
     }
 
     private static final String USER_KEY = "cave.user.id";
+
     public static User create(SignupForm signupForm){
-        User user = new User(signupForm.email, signupForm.password);
-        user.save();
-        return (user);
+        User user = User.findByMail(signupForm.email);
+        if (user == null) {
+            User newUser = new User(signupForm.email, signupForm.password);
+            newUser.save();
+            return (newUser);
+        }
+        return null;
     }
 
     public static AuthenticationState authenticate(String userMail, String password){

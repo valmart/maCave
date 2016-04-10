@@ -18,6 +18,6 @@ public class CaveController extends Controller {
                 return (ok(views.html.cave.render(cave)));
             }
         }
-        return ok(views.html.index.render("Bienvenue sur cavavin"));
+        return ok(views.html.signup.render(null));
     }
 }

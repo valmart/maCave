@@ -3,7 +3,7 @@
 @import helper._
 
 @main("cavavin") {
-
+<div class="row" style="height:100vh; background: url(@routes.Assets.versioned("images/caveavin.jpg")) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
     <div class="clearfix sign-in-container">
         <div class="col-xs-12 text-center">
         @helper.form(routes.UsersController.doSignup(), 'class -> "cmxform", 'id -> "signUpForm") {
@@ -13,8 +13,10 @@
                 <div class="col-sm-12">
                     <input id="email" name="email" value="" class="form-control" placeholder="Email" type="text">
                     <input id="password" name="password" class="form-control" placeholder="Mot de passe" type="password">
+                    @if(inForm != null){
                     @if(inForm.hasGlobalErrors) {
                         <span>@inForm.globalError.message</span>
+                    }
                     }
                 </div>
             </div>
@@ -26,4 +28,5 @@
         }
         </div>
     </div>
+</div>
 }

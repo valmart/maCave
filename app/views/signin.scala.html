@@ -1,7 +1,7 @@
 @(inForm: Form[_])
 
 @main("cavavin") {
-
+    <div class="row" style="height:100vh; background: url(@routes.Assets.versioned("images/caveavin.jpg")) no-repeat center center fixed; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;">
     <div class="clearfix sign-in-container">
         <div class="col-xs-12 text-center">
         @helper.form(routes.UsersController.doLogin(), 'class -> "cmxform", 'id -> "signUpForm") {
@@ -11,8 +11,10 @@
                 <div class="col-sm-12">
                     <input id="email" name="email" placeholder="Email" type="text" class="form-control">
                     <input id="password" name="password" placeholder="Mot de passe" type="password" class="form-control">
-                    @if(inForm.hasGlobalErrors) {
-                        <span>@inForm.globalError.message</span>
+                    @if(inForm != null) {
+                        @if(inForm.hasGlobalErrors) {
+                            <span>@inForm.globalError.message</span>
+                        }
                     }
                 </div>
             </div>
@@ -23,5 +25,6 @@
             </div>
         }
         </div>
+    </div>
     </div>
 }

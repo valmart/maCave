@@ -63,6 +63,6 @@ public class BouteillesController extends Controller {
                 return (ok(views.html.liste_page.render(cave, enumColor)));
             }
         }
-        return ok(views.html.index.render("Bienvenue sur cavavin"));
+        return ok(views.html.signup.render(null));
     }
 }

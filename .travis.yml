@@ -4,4 +4,4 @@ jdk:
 scala: 
     - 2.11.6
 sudo: true
-script: sbt test
+script: activator run

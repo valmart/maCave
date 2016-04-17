@@ -1,0 +1,1 @@
+activator start -Dapplication.secret=valentinmartin -Dplay.evolutions.db.default.autoApply=true -Dhttp.port=80

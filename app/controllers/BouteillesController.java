@@ -28,7 +28,7 @@ public class BouteillesController extends Controller {
         if (form.hasErrors())
             return badRequest(views.html.creation_bouteille.render(form));
         Cave cave = Application.getLocalUser(session()).caves.get(0);
-        BouteilleManager.create(form.get(), cave); // TODO Passer la cave en parametre dans le form ?
+        BouteilleManager.create(form.get(), cave);
         flash(Application.FLASH_MESSAGE, "Your new bottle(s) have been created");
         return redirect(routes.CaveController.showCave());
     }

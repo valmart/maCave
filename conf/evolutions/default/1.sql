@@ -26,8 +26,6 @@ create table bouteille (
 create table cave (
   id                        bigint not null,
   owner_id                  bigint,
-  bouteille_max             integer,
-  valeur_max                double,
   creation_date             timestamp not null,
   last_update_date          timestamp not null,
   qr_code                   varchar(255),

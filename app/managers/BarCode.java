@@ -39,10 +39,9 @@ public class BarCode {
     }
 
     public static String addToBottle(Long bottleId) {
-        // TODO Change location for production environnement
         final String qrCodeData = "195.154.71.62/bottle/" + bottleId.toString();
-        // TODO Change location for production environnement
-        final String filePath = "./public/images/qr/" + bottleId + ".png";
+        new File("./images/").mkdirs();
+        final String filePath = "./qr/" + bottleId + ".png";
         final String charset = "UTF-8";
 
         try {
@@ -54,10 +53,9 @@ public class BarCode {
     }
 
     public static String addToCave(Long caveId) {
-        // TODO Change location for production environnement
         final String qrCodeData = "195.154.71.62/cave";
-        // TODO Change location for production environnement
-        final String filePath = "./public/images/caves/" + caveId + ".png";
+        new File("./caves/").mkdirs();
+        final String filePath = "./caves/" + caveId + ".png";
         final String charset = "UTF-8";
 
         try {

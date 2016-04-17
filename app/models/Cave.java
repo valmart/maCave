@@ -24,10 +24,6 @@ public class Cave extends Model {
     @OneToMany(cascade=CascadeType.ALL)
     public List<Bouteille>  bouteilles;
 
-    public int              bouteille_max;
-
-    public double           valeur_max;
-
     @Column(nullable = false)
     @Formats.DateTime(pattern="dd/MM/yyyy HH:mm:ss")
     public Date             creation_date;
@@ -42,8 +38,6 @@ public class Cave extends Model {
 
     public Cave(User owner){
         this.owner = owner;
-        this.bouteille_max = 0;
-        this.valeur_max = 0;
         this.creation_date = new Date();
         this.last_update_date = new Date();
         this.bouteilles = new ArrayList<>();

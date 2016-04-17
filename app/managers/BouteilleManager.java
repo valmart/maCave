@@ -24,19 +24,14 @@ public class BouteilleManager {
             bouteille.domaine = bouteilleForm.domaine;
             bouteille.millesime = bouteilleForm.millesime;
             bouteille.couleur = bouteilleForm.couleur;
-            bouteille.date_creation = new Date();
             bouteille.volume_bouteille = bouteilleForm.volume_bouteille;
-            bouteille.isAvailable = true;
             bouteille.isGift = (bouteilleForm.isGift == true ? true : false);
             bouteille.infos = bouteilleForm.infos;
-            bouteille.giveAsGift = false;
-            bouteille.derniere_modification = new Date();
             bouteille.save();
             bouteille.qr_code = BarCode.addToBottle(bouteille.id);
             bouteille.cave = cave;
             bouteille.update();
             cave.bouteilles.add(bouteille);
-            cave.bouteille_max = (cave.bouteille_max < Bouteille.getAvailableBottles(cave).size() ? Bouteille.getAvailableBottles(cave).size(): cave.bouteille_max);
             i--;
         }
         cave.update();

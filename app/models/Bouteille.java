@@ -49,7 +49,10 @@ public class Bouteille extends Model {
     public Date             derniere_modification;
 
     public Bouteille(){
-
+        this.isAvailable = true;
+        this.giveAsGift = false;
+        this.date_creation = new Date();
+        this.derniere_modification = new Date();
     }
 
     public static Finder<Long, Bouteille> find = new Finder<Long, Bouteille>(Long.class, Bouteille.class);

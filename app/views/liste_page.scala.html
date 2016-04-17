@@ -3,7 +3,6 @@
 @import managers.BouteilleManager
 
 @main("Cavavin") {
-    <div class="container" style="padding-top:80px">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">Bouteilles disponibles : @couleur</h3>
@@ -12,5 +11,4 @@
             @liste_bouteille(BouteilleManager.getAvailableBottles(cave, couleur))
             </div>
         </div>
-    </div>
 }

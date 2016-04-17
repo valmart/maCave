@@ -17,6 +17,8 @@ GET     /cave                       controllers.CaveController.showCave()
 
 GET     /liste/:couleur             controllers.BouteillesController.getBottleList(couleur: String)
 
+GET     /historique                 controllers.CaveController.getHistorique()
+
 GET     /bottle/:id                 controllers.BouteillesController.bottleDetails(id: Long)
 
 GET     /bottle/giveAsGift/:id      controllers.BouteillesController.giveBottleAsGift(id: Long)

@@ -6,6 +6,7 @@ import models.Bouteille;
 import models.Cave;
 import models.Couleur;
 import models.User;
+import org.h2.result.ResultRemote;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -29,7 +30,7 @@ public class BouteillesController extends Controller {
             return badRequest(views.html.creation_bouteille.render(form));
         Cave cave = Application.getLocalUser(session()).caves.get(0);
         BouteilleManager.create(form.get(), cave);
-        flash(Application.FLASH_MESSAGE, "Your new bottle(s) have been created");
+        flash(Application.FLASH_MESSAGE, "Une nouvelle bouteille a été créée");
         return redirect(routes.CaveController.showCave());
     }
 

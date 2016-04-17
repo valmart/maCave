@@ -20,4 +20,15 @@ public class CaveController extends Controller {
         }
         return ok(views.html.signup.render(null));
     }
+
+    public static Result getHistorique(){
+        User currUser = Application.getLocalUser(session());
+        if (currUser != null) {
+            if (currUser.caves.size() > 0) {
+                Cave cave = currUser.caves.get(0);
+                return (ok(views.html.liste_historique.render(cave)));
+            }
+        }
+        return ok(views.html.signup.render(null));
+    }
 }

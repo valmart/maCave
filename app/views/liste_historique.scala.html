@@ -1,14 +1,33 @@
 @(cave: Cave)
 
-@import managers.BouteilleManager
-
 @main("Cavavin") {
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">Autre</h3>
-        </div>
-        <div class="panel-body">
-        @liste_bouteille(BouteilleManager.getAvailableRedBottles(cave))
-        </div>
-    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Couleur</th>
+                <th>Appelation</th>
+                <th>Domaine</th>
+                <th>Millesime</th>
+                <th>Date de création</th>
+                <th>Date d'utilisation</th>
+                <th>Disponible</th>
+                <th>Cadeau</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(bouteille <- cave.bouteilles) {
+                <tr>
+                    <td>@bouteille.couleur</td>
+                    <td>@bouteille.appellation</td>
+                    <td>@bouteille.domaine</td>
+                    <td>@bouteille.millesime</td>
+                    <td>@bouteille.date_creation</td>
+                    <td>@bouteille.date_utilisation</td>
+                    <td>@bouteille.isAvailable</td>
+                    <td>@bouteille.isGift</td>
+                </tr>
+            }
+        </tbody>
+    </table>
 }

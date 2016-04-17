@@ -40,8 +40,8 @@ public class BarCode {
 
     public static String addToBottle(Long bottleId) {
         final String qrCodeData = "195.154.71.62/bottle/" + bottleId.toString();
-        new File("./public/images/qr/").mkdirs();
-        final String filePath = "./public/images/qr/" + bottleId + ".png";
+        new File("~/maCave/images/qr/").mkdirs();
+        final String filePath = "~/maCave/images/qr/" + bottleId + ".png";
         final String charset = "UTF-8";
 
         try {
@@ -54,8 +54,8 @@ public class BarCode {
 
     public static String addToCave(Long caveId) {
         final String qrCodeData = "195.154.71.62/cave";
-        new File("./public/images/caves/").mkdirs();
-        final String filePath = "./public/images/caves/" + caveId + ".png";
+        new File("~/maCave/images/caves/").mkdirs();
+        final String filePath = "~/maCave/images/caves/" + caveId + ".png";
         final String charset = "UTF-8";
 
         try {

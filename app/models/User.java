@@ -43,10 +43,4 @@ public class User extends Model{
     }
 
     public static Finder<Long, User> find = new Finder<Long, User>(Long.class, User.class);
-
-    public static User findByMail(String email){
-        return find.where()
-                .eq("email", email)
-                .findUnique();
-    }
 }

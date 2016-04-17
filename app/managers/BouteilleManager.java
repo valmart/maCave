@@ -49,4 +49,72 @@ public class BouteilleManager {
         bouteille.giveAsGift = true;
         BouteilleManager.delete(bouteille);
     }
+
+    public static List<Bouteille> getAvailableBottles(Cave cave){
+        return Bouteille.find.where()
+                .eq("isAvailable", true)
+                .eq("cave.owner", cave.owner)
+                .findList();
+    }
+
+    public static List<Bouteille>   getAvailableBottles(Cave cave, Couleur couleur){
+        return Bouteille.find.where()
+                .eq("isAvailable", true)
+                .eq("couleur", couleur)
+                .eq("cave.owner", cave.owner)
+                .findList();
+    }
+
+    public static List<Bouteille>   getAvailableRedBottles(Cave cave){
+        return Bouteille.find.where()
+                .eq("isAvailable", true)
+                .eq("couleur", Couleur.ROUGE)
+                .eq("cave.owner", cave.owner)
+                .findList();
+    }
+
+    public static List<Bouteille>   getAvailableWhiteBottles(Cave cave){
+        return Bouteille.find.where()
+                .eq("isAvailable", true)
+                .eq("couleur", Couleur.BLANC)
+                .eq("cave.owner", cave.owner)
+                .findList();
+    }
+
+    public static List<Bouteille>   getAvailableRoseBottles(Cave cave){
+        return Bouteille.find.where()
+                .eq("isAvailable", true)
+                .eq("couleur", Couleur.ROSE)
+                .eq("cave.owner", cave.owner)
+                .findList();
+    }
+
+    public static List<Bouteille>   getAvailableOtherBottles(Cave cave){
+        return Bouteille.find.where()
+                .eq("isAvailable", true)
+                .eq("couleur", Couleur.AUTRE)
+                .eq("cave.owner", cave.owner)
+                .findList();
+    }
+
+    public static List<Bouteille>   getDrunkBottles(Cave cave){
+        return Bouteille.find.where()
+                .eq("isAvailable", false)
+                .eq("cave.owner", cave.owner)
+                .findList();
+    }
+
+    public static List<Bouteille>   getGiftBottles(Cave cave){
+        return Bouteille.find.where()
+                .eq("isGift", true)
+                .eq("cave.owner", cave.owner)
+                .findList();
+    }
+
+    public static List<Bouteille>   getGiveAsGiftBottles(Cave cave){
+        return Bouteille.find.where()
+                .eq("giveAsGift", true)
+                .eq("cave.owner", cave.owner)
+                .findList();
+    }
 }

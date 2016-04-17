@@ -1,5 +1,7 @@
 @(cave: Cave)
 
+@import managers.BouteilleManager
+
 @main("Cavavin") {
     <div class="container" style="padding-top:80px">
         <div class="row">
@@ -8,7 +10,7 @@
                     <dtitle>Nombre de bouteilles</dtitle>
                     <hr>
                     <div class="cont">
-                        <p><bold>@Bouteille.getAvailableBottles(cave).size()</bold></p>
+                        <p><bold>@BouteilleManager.getAvailableBottles(cave).size()</bold></p>
                     </div>
                 </div>
                 <div class="half-unit">
@@ -24,13 +26,13 @@
                     <dtitle>Coup d'oeil</dtitle>
                     <hr>
                     <div class="cont">
-                        <p><bold>@Bouteille.getAvailableRedBottles(cave).size()</bold> | <a class="button" href="@routes.BouteillesController.getBottleList("rouge")">Bouteilles de Rouge</a></p>
+                        <p><bold>@BouteilleManager.getAvailableRedBottles(cave).size()</bold> | <a class="button" href="@routes.BouteillesController.getBottleList("rouge")">Bouteilles de Rouge</a></p>
                         <br>
-                        <p><bold>@Bouteille.getAvailableRoseBottles(cave).size()</bold> | <a class="button" href="@routes.BouteillesController.getBottleList("rose")">Bouteilles de Rosé</a></p>
+                        <p><bold>@BouteilleManager.getAvailableRoseBottles(cave).size()</bold> | <a class="button" href="@routes.BouteillesController.getBottleList("rose")">Bouteilles de Rosé</a></p>
                         <br>
-                        <p><bold>@Bouteille.getAvailableWhiteBottles(cave).size()</bold> | <a class="button" href="@routes.BouteillesController.getBottleList("blanc")">Bouteilles de Blanc</a></p>
+                        <p><bold>@BouteilleManager.getAvailableWhiteBottles(cave).size()</bold> | <a class="button" href="@routes.BouteillesController.getBottleList("blanc")">Bouteilles de Blanc</a></p>
                         <br>
-                        <p><bold>@Bouteille.getAvailableOtherBottles(cave).size()</bold> | <a class="button" href="@routes.BouteillesController.getBottleList("autre")">Autres Bouteilles</a></p>
+                        <p><bold>@BouteilleManager.getAvailableOtherBottles(cave).size()</bold> | <a class="button" href="@routes.BouteillesController.getBottleList("autre")">Autres Bouteilles</a></p>
                         <br>
                     </div>
 
@@ -42,10 +44,10 @@
                     <hr>
                     <div class="cont">
                         <p><bold>@cave.bouteilles.size()</bold> | <ok>Bouteilles Ajoutées</ok></p>
-                        <p>dont <bold>@Bouteille.getGiftBottles(cave).size()</bold> | Reçues <i class="fa fa-2x fa-gift"></i></p>
+                        <p>dont <bold>@BouteilleManager.getGiftBottles(cave).size()</bold> | Reçues <i class="fa fa-2x fa-gift"></i></p>
                         <br>
-                        <p><bold>@Bouteille.getDrunkBottles(cave).size()</bold> | <bad>Bouteilles Consommées</bad></p>
-                        <p>dont <bold>@Bouteille.getGiveAsGiftBottles(cave).size()</bold> | Offertes <i class="fa fa-2x fa-gift"></i></p>
+                        <p><bold>@BouteilleManager.getDrunkBottles(cave).size()</bold> | <bad>Bouteilles Consommées</bad></p>
+                        <p>dont <bold>@BouteilleManager.getGiveAsGiftBottles(cave).size()</bold> | Offertes <i class="fa fa-2x fa-gift"></i></p>
                         <br>
                     </div>
 
@@ -69,7 +71,7 @@
                 <h3 class="panel-title">Rouge</h3>
             </div>
             <div class="panel-body">
-                @liste_bouteille(Bouteille.getAvailableRedBottles(cave))
+                @liste_bouteille(BouteilleManager.getAvailableRedBottles(cave))
             </div>
         </div>
         <div class="panel panel-default">
@@ -77,7 +79,7 @@
                 <h3 class="panel-title">Rosé</h3>
             </div>
             <div class="panel-body">
-                @liste_bouteille(Bouteille.getAvailableRoseBottles(cave))
+                @liste_bouteille(BouteilleManager.getAvailableRoseBottles(cave))
             </div>
         </div>
         <div class="panel panel-default">
@@ -85,7 +87,7 @@
                 <h3 class="panel-title">Blanc</h3>
             </div>
             <div class="panel-body">
-                @liste_bouteille(Bouteille.getAvailableWhiteBottles(cave))
+                @liste_bouteille(BouteilleManager.getAvailableWhiteBottles(cave))
             </div>
         </div>
         <div class="panel panel-default">
@@ -93,7 +95,7 @@
                 <h3 class="panel-title">Autre</h3>
             </div>
             <div class="panel-body">
-                @liste_bouteille(Bouteille.getAvailableOtherBottles(cave))
+                @liste_bouteille(BouteilleManager.getAvailableOtherBottles(cave))
             </div>
         </div>
     </div>

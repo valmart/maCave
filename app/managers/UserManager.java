@@ -19,7 +19,7 @@ public class UserManager {
     private static final String USER_KEY = "cave.user.id";
 
     public static User create(SignupForm signupForm){
-        User user = User.findByMail(signupForm.email);
+        User user = UserManager.findByMail(signupForm.email);
         if (user == null) {
             User newUser = new User(signupForm.email, signupForm.password);
             newUser.save();
@@ -29,7 +29,7 @@ public class UserManager {
     }
 
     public static AuthenticationState authenticate(String userMail, String password){
-        User user = User.findByMail(userMail);
+        User user = UserManager.findByMail(userMail);
         if (BCrypt.checkpw(password, user.password)) {
             storeUser(ctx().session(), userMail);
             return (AuthenticationState.AUTHENTICATED);
@@ -40,7 +40,7 @@ public class UserManager {
     public static User getCurrentUser(Http.Session session) {
         String userId = session.get(USER_KEY);
         if (userId != null) {
-            return User.findByMail(userId);
+            return UserManager.findByMail(userId);
         }
         return null;
     }
@@ -52,5 +52,11 @@ public class UserManager {
     public static void logout(final Http.Context context) {
         Http.Session session = context.session();
         session.remove(USER_KEY);
+    }
+
+    public static User findByMail(String email){
+        return User.find.where()
+                .eq("email", email)
+                .findUnique();
     }
 }
